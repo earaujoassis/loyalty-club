@@ -1,6 +1,6 @@
 module Hectic
   module Models
-    class Customer < Sequel::Model
+    class LoyaltyPoint < Sequel::Model
     end
   end
 end
