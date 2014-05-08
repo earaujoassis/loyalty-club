@@ -7,6 +7,7 @@ gem 'rake'
 gem 'thin'
 gem 'dotenv'
 gem 'sanitize'
+gem 'activesupport'
 
 # DB
 gem 'sequel'

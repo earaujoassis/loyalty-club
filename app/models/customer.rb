@@ -5,12 +5,6 @@ module Hectic
         def ordered
           order(:created_at.desc)
         end
-
-        def matching(attrs = {})
-          where(
-            {~:full_name => nil, :email => attrs[:full_name]}
-          )
-        end
       end
 
       one_to_many :loyalty_points, :on_delete => :cascade

@@ -7,6 +7,7 @@ $: << File.expand_path('../', __FILE__)
 require 'dotenv'
 Dotenv.load
 
+require 'active_support/json'
 require 'stylus/sprockets'
 
 require 'app/models'
@@ -16,10 +17,7 @@ require 'app/routes'
 module Hectic
   class App < Sinatra::Application
     configure do
-      set :database, lambda {
-        ENV['DATABASE_URL'] ||
-          "postgres://localhost:5432/monocle_#{environment}"
-      }
+      set :database, ENV['DATABASE_URL']
     end
 
     configure do
