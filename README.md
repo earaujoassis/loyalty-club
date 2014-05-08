@@ -4,18 +4,18 @@
 
 # Setup and running
 
-    ```sh
-    $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
-    ```
+  ```sh
+  $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
+  ```
 
 Make sure to create a proper user with password for the PostgreSQL installation under Debian-based systems.
 
-    ```sh
-    $ bundle install
-    $ createdb loyalty_club_development
-    $ rake db:migrate
-    $ thin start
-    ```
+  ```sh
+  $ bundle install
+  $ createdb loyalty_club_development
+  $ rake db:migrate
+  $ thin start
+  ```
 
 ## License
 
