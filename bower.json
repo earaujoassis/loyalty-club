@@ -1,0 +1,27 @@
+{
+  "name": "loyalty-club",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ea-lab/loyalty-club",
+  "authors": [
+    "Ewerton Assis <hey@ewerton-araujo.com>"
+  ],
+  "description": "A retailer’s customer loyalty program application",
+  "keywords": [
+    "app",
+    "web",
+    "webapp",
+    "sinatra",
+    "ruby",
+    "sequel"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
