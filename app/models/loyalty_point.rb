@@ -19,6 +19,13 @@ module Hectic
         }
       end
 
+      def as_resumed_json(options = nil)
+        {
+          previous_points: previous_points,
+          current_points: current_points
+        }
+      end
+
       def validate!
         unless previous_points >= 0 and current_points >= 0
           raise Sequel::ValidationFailed, 'Cannot redeem more points than the customer has in its current balance'

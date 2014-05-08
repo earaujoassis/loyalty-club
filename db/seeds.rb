@@ -17,3 +17,7 @@ update.current_points = point.current_points - 5
 update.description = 'Customer was granted a 10% discount'
 update.customer = customer
 update.save
+
+customer = Hectic::Models::Customer.new
+customer.full_name = 'Hernandes Sanchez'
+customer.save

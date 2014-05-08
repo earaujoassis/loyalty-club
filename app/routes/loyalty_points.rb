@@ -6,15 +6,19 @@ module Hectic
       end
 
       get '/v1/customers/:id/current_points/?' do
-        json LoyaltyPoint.where(:customer_id => params[:id]).ordered.first!
+        json LoyaltyPoint.where(:customer_id => params[:id]).ordered.first
       end
 
       post '/v1/customers/:id/points/?' do
-        latest_transaction = LoyaltyPoint.where(:customer_id => params[:id]).ordered.first!
+        latest_transaction = LoyaltyPoint.where(:customer_id => params[:id]).ordered.first
         balance = params[:balance].to_i
         customer = Customer.first!(:id => params[:id])
         transaction = LoyaltyPoint.new
-        transaction.previous_points = latest_transaction.current_points
+        unless latest_transaction.nil?
+          transaction.previous_points = latest_transaction.current_points
+        else
+          transaction.previous_points = 0
+        end
         transaction.current_points = transaction.previous_points + balance
         transaction.customer = customer
         transaction.set_fields(params, [:description])
