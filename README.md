@@ -15,7 +15,7 @@
   ```
 
 Make sure to create a proper user with password for the PostgreSQL installation under Debian-based systems.
-Then you should be able to create a .env file (see .sample.env for instructions).
+Then you should be able to create a `.env` file (see `.sample.env` for instructions).
 
   ```sh
   $ bundle install
@@ -23,6 +23,11 @@ Then you should be able to create a .env file (see .sample.env for instructions)
   $ rake db:migrate db:seed
   $ thin start
   ```
+
+## Acknowledgment
+
+This stack is based upon [Alex MacCaw](https://twitter.com/maccaw)'s "[Structuring Sinatra Applications](http://blog.sourcing.io/structuring-sinatra)"
+and his [Monocle](https://github.com/maccman/monocle) application.
 
 ## License
 
