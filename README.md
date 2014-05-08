@@ -9,6 +9,7 @@
   ```
 
 Make sure to create a proper user with password for the PostgreSQL installation under Debian-based systems.
+Then you should be able to create a .env file (see .sample.env for instructions).
 
   ```sh
   $ bundle install
