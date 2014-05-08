@@ -7,7 +7,7 @@ Sequel.migration do
     create_table(:customers) do
       column :id, 'uuid', :default => Sequel::LiteralString.new('uuid_generate_v4()'), :null => false
       column :iid, :serial, :null => false
-      column :full_name, 'text'
+      column :full_name, 'text', :null => false
       column :created_at, 'timestamp without time zone'
       column :updated_at, 'timestamp without time zone'
 
@@ -20,8 +20,8 @@ Sequel.migration do
       column :iid, 'serial', :null => false
       foreign_key :customer_id, :customers, :type => 'uuid', :key => [:id]
       column :description, 'text'
-      column :previous_points, 'integer', :default => 0
-      column :current_points, 'integer', :default => 0
+      column :previous_points, 'integer', :default => 0, :null => false
+      column :current_points, 'integer', :default => 0, :null => false
       column :created_at, 'timestamp without time zone'
       column :updated_at, 'timestamp without time zone'
 
