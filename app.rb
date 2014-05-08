@@ -16,8 +16,12 @@ require 'app/routes'
 
 module Hectic
   class App < Sinatra::Application
-    configure do
+    configure :production, :development do
       set :database, ENV['DATABASE_URL']
+    end
+
+    configure :test do
+      set :database, ENV['DATABASE_TST']
     end
 
     configure do

@@ -18,6 +18,12 @@ module Hectic
           created_at: created_at
         }
       end
+
+      def validate!
+        unless previous_points >= 0 and current_points >= 0
+          raise Sequel::ValidationFailed, 'Cannot redeem more points than the customer has in its current balance'
+        end
+      end
     end
   end
 end

@@ -19,7 +19,7 @@ module Hectic
         status 406
         json error: {
           type: 'validation_failed',
-          messages: env['sinatra.error'].errors
+          messages: env['sinatra.error'].to_s
         }
       end
 
