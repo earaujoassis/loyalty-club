@@ -60,6 +60,19 @@ describe 'LoyaltyPoints route (based on data seeds):' do
     expect(body[:error][:type]).to eq 'validation_failed'
   end
 
+  it 'creates a new transaction of loyalty points, w/o a description, for a given customer' do
+    post "/v1/customers/#{@customer.id}/points/", {
+      balance: '+1000',
+      previous_points: 100,
+      current_points: 200
+    }
+    expect(last_response).to be_ok
+    body = symbolize_keys JSON.parse(last_response.body)
+    expect(body[:previous_points]).to eq 3
+    expect(body[:current_points]).to eq 1003
+    expect(body[:description]).to eq ''
+  end
+
   it 'updates a given transaction of loyalty points for a given customer' do
     put "/v1/customers/#{@customer.id}/points/#{@transaction.id}/", {
       balance: '-2',

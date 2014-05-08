@@ -12,7 +12,7 @@ module Hectic
       def as_json(options = nil)
         {
           id: id,
-          description: description,
+          description: description || '',
           previous_points: previous_points,
           current_points: current_points,
           created_at: created_at
