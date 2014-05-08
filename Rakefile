@@ -43,4 +43,9 @@ namespace :db do
     `sequel -d #{database.url} > db/schema.rb`
     `pg_dump --schema-only #{database_name} > db/schema.sql`
   end
+
+  desc 'Load seed data into database'
+  task :seed => :app do
+    load './db/seeds.rb'
+  end
 end

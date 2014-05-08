@@ -37,6 +37,7 @@ module Hectic
 
     use Hectic::Routes::Static
     use Hectic::Routes::Index
+    use Hectic::Routes::Customers
     use Hectic::Routes::LoyaltyPoints
   end
 end

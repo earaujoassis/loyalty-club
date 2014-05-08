@@ -23,3 +23,4 @@ gem 'json'
 
 # Tests
 gem 'nestful'
+gem 'rspec'

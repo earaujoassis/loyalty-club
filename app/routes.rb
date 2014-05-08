@@ -3,6 +3,7 @@ module Hectic
     autoload :Base, 'app/routes/base'
     autoload :Static, 'app/routes/static'
     autoload :Index, 'app/routes/index'
-    autoload :LoyaltyPoints, 'app/routes/loyalty-points'
+    autoload :Customers, 'app/routes/customers'
+    autoload :LoyaltyPoints, 'app/routes/loyalty_points'
   end
 end

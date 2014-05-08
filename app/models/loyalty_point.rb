@@ -1,24 +1,20 @@
 module Hectic
   module Models
-    class Customer < Sequel::Model
+    class LoyaltyPoint < Sequel::Model
       dataset_module do
         def ordered
           order(:created_at.desc)
         end
-
-        def matching(attrs = {})
-          where(
-            {~:full_name => nil, :email => attrs[:full_name]}
-          )
-        end
       end
 
-      one_to_many :loyalty_points, :on_delete => :cascade
+      many_to_one :customer
 
       def as_json(options = nil)
         {
           id: id,
-          full_name: full_name,
+          description: description,
+          previous_points: previous_points,
+          current_points: current_points,
           created_at: created_at
         }
       end

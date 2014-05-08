@@ -2,7 +2,7 @@
 
 > A retailer’s customer loyalty program application
 
-# Setup and running
+## Setup and running
 
   ```sh
   $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
@@ -13,7 +13,7 @@ Make sure to create a proper user with password for the PostgreSQL installation 
   ```sh
   $ bundle install
   $ createdb loyalty_club_development
-  $ rake db:migrate
+  $ rake db:migrate db:seed
   $ thin start
   ```
 
