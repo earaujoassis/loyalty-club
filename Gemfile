@@ -15,10 +15,8 @@ gem 'sinatra-sequel'
 gem 'pg'
 
 # Assets
-gem 'yui-compressor'
-gem 'sprockets'
-gem 'stylus'
-gem 'stylus-source'
+gem 'sinatra-assetpack'
+gem 'sass'
 gem 'json'
 
 # Tests

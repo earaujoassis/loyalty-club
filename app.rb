@@ -7,8 +7,11 @@ $: << File.expand_path('../', __FILE__)
 require 'dotenv'
 Dotenv.load
 
+require 'sinatra/base'
+require 'sinatra/sequel'
+require 'sinatra/assetpack'
 require 'active_support/json'
-require 'stylus/sprockets'
+require 'sass'
 
 require 'app/models'
 require 'app/extensions'
