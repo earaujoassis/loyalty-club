@@ -12,7 +12,6 @@ gem 'activesupport'
 # DB
 gem 'sequel'
 gem 'sinatra-sequel'
-gem 'sequel_postgresql_triggers'
 gem 'pg'
 
 # Assets
@@ -23,5 +22,5 @@ gem 'stylus-source'
 gem 'json'
 
 # Tests
-gem 'nestful'
+gem 'rack-test'
 gem 'rspec'
