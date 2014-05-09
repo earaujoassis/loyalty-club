@@ -2,14 +2,13 @@
 
 > A retailer’s customer loyalty program application
 
-## Setup and running
-
 **Requirements**
 
-  * Ruby 1.9+
-  * Bower (Node.js + NPM)
-  * Postgres 9.1
+ * Ruby 1.9+
+ * Bower (Node.js + NPM)
+ * Postgres 9.1
 
+## Setup and running
 
   ```sh
   $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
@@ -23,6 +22,12 @@ Then you should be able to create a `.env` file (see `.sample.env` for instructi
   $ createdb loyalty_club_development
   $ rake db:migrate db:seed
   $ thin start
+  ```
+
+## Testing
+
+  ```sh
+  $ rspec
   ```
 
 ## Acknowledgment
