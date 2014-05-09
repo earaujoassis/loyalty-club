@@ -48,7 +48,7 @@
       <ul class="transactions">
         <li ng-repeat="transaction in history_transactions" class="single">
           <p ng-show="transaction.description" ng-bind="transaction.description"></p>
-          <small>From <points value="transaction.previous_points" /> to <points value="transaction.current_points" /> &mdash; <time datetime="{{ transaction.created_at }}" ng-bind="transaction.created_at | date : 'MMM d, y @ h a'"></time></small>
+          <small>From <points value="transaction.previous_points" /> to <points value="transaction.current_points" /> (total of <span class="number old">{{ diff = transaction.current_points - transaction.previous_points; Math.abs(diff) }}</span> <ng-pluralize count="diff" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize> <span ng-if="diff < 0">redeemed</span><span ng-if="diff >= 0">issued</span>) &mdash; <time datetime="{{ transaction.created_at }}" ng-bind="transaction.created_at | date : 'MMM d, y @ h a'"></time></small>
         </li>
         <li ng-show="history_transactions.length === 0" class="single">
           <p>None yet</p>

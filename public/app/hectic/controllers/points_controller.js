@@ -12,6 +12,7 @@ define(["angular", "hectic"], function (angular) {
             $scope.latest_transaction = {};
             $scope.history_transactions = [];
             $scope.transaction = {};
+            $scope.Math = window.Math;
 
             if ($routeParams.id) {
                 CustomersService
