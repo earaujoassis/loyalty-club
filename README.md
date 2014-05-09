@@ -10,12 +10,9 @@
 
 ## Setup and running
 
-  ```sh
-  $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
-  ```
-
-Make sure to create a proper user with password for the PostgreSQL installation under Debian-based systems.
-Then you should be able to create a `.env` file (see `.sample.env` for instructions).
+Make sure to create a proper user with password for the PostgreSQL installation under Debian-based systems
+(you must also apt-get the package `postgresql-contrib-9.x` for your installation). Then you should be
+able to create a `.env` file (see `.sample.env` for instructions).
 
   ```sh
   $ bundle install
