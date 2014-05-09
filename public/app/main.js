@@ -1,6 +1,7 @@
 require.config({
     baseUrl: "app",
     paths: {
+        async: "/components/async/lib/async",
         underscore: "/components/underscore/underscore",
         angular: "/components/angular/angular.min",
         ngResource: "/components/angular-resource/angular-resource.min",
@@ -48,6 +49,7 @@ require([
     "underscore",
     "jquery",
     "bootstrap",
+    "async",
     "hectic"
 ], function (angular) {
     "use strict";
