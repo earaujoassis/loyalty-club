@@ -7,7 +7,7 @@
     <h2 class="title"><span ng-bind="customer.full_name"></span> <small class="points">(<points value="latest_transaction.current_points" standard="0" />)</small></h2>
   </header>
   <div class="customer-content">
-    <p class="latest-transaction" ng-show="latest_transaction.id"><span class="regular">Latest</span>: <span ng-show="latest_transaction.description" ng-bind="latest_transaction.description"></span> (from <points value="latest_transaction.previous_points" /> to <points value="latest_transaction.current_points" />)</p>
+    <p class="latest-transaction" ng-show="latest_transaction.id"><span class="regular">Latest</span>: <span ng-show="latest_transaction.description" ng-bind="latest_transaction.description"></span> (from <points value="latest_transaction.previous_points" /> to <points value="latest_transaction.current_points" /> loyalty <ng-pluralize count="latest_transaction.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
     <div class="new-transaction">
       <form name="transactionForm" novalidate>
         <div class="row">
@@ -29,11 +29,11 @@
               <div class="input-group-btn">
                 <button disabled type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Points issuance</a></li>
-                  <li><a href="#">Points redemption</a></li>
+                  <li><a href="#">Issue</a></li>
+                  <li><a href="#">Redeem</a></li>
                 </ul>
               </div>
-              <input ng-change="overAttempting = false" ng-model="transaction.balance" required type="text" ng-pattern="/^[-]?[1-9][0-9]*$/" class="form-control" placeholder="Amount">
+              <input ng-change="overAttempting = false" ng-model="transaction.balance" required type="text" ng-pattern="/^[-]?[1-9][0-9]*$/" class="form-control" placeholder="Amount of points">
               <div class="input-group-btn">
                 <button type="button" class="btn btn-primary" ng-disabled="transactionForm.$invalid" ng-click="saveTransaction(transaction)">Save</button>
               </div>

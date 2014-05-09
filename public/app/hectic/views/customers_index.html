@@ -12,7 +12,7 @@
         <h2 class="title"><a ng-href="/customers/{{ customer.id }}/points" ng-bind="customer.full_name"></a> <small class="points">(<points value="customer.points.current_points" standard="0" />)</small></h2>
       </header>
       <div class="customer-content">
-        <p class="latest-transaction" ng-show="customer.points.id"><span class="regular">Latest</span>: <span ng-bind="customer.points.description"></span> (from <points value="customer.points.previous_points" /> to <points value="customer.points.current_points" />)</p>
+        <p class="latest-transaction" ng-show="customer.points.id"><span class="regular">Latest</span>: <span ng-bind="customer.points.description"></span> (from <points value="customer.points.previous_points" /> to <points value="customer.points.current_points" /> loyalty <ng-pluralize count="customer.points.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
       </div>
     </section>
   </li>
