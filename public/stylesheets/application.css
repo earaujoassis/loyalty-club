@@ -1,0 +1,252 @@
+@import "http://fonts.googleapis.com/css?family=Raleway:400,500,600,300";
+@import "http://fonts.googleapis.com/css?family=Maven+Pro";
+@import url(/components/bootstrap/dist/css/bootstrap.min.css);
+@import url(/components/normalize-css/normalize.css);
+/* line 7, ../sass/application.scss */
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 13, ../sass/application.scss */
+.light, .customer-container .latest-transaction {
+  font-weight: 300;
+}
+
+/* line 17, ../sass/application.scss */
+.regular, .main-footer, .customer-container .customer-header h2, .customer-container .customer-header .title {
+  font-weight: 400;
+}
+
+/* line 21, ../sass/application.scss */
+.medium, .number, .customer-container .history h3, .customer-container .history .title {
+  font-weight: 500;
+}
+
+/* line 25, ../sass/application.scss */
+.semi-bold, .breadcrumbs a, .breadcrumbs .root {
+  font-weight: 600;
+}
+
+/* line 29, ../sass/application.scss */
+.positive {
+  color: #3cd513;
+}
+
+/* line 33, ../sass/application.scss */
+.nil {
+  color: #e6521f;
+}
+
+/* line 37, ../sass/application.scss */
+.old {
+  color: #ddbc1e;
+}
+
+/* line 41, ../sass/application.scss */
+.number {
+  position: relative;
+  font-size: 1.5em;
+}
+
+/* line 49, ../sass/application.scss */
+.btn-primary, .btn-primary:hover {
+  background: #6ec1dd;
+  border-color: #6ec1dd;
+}
+
+/* line 55, ../sass/application.scss */
+.bs-callout {
+  margin: 0 0 30px;
+  padding: 15px 20px;
+  border-left: 3px solid #eee;
+}
+/* line 60, ../sass/application.scss */
+.bs-callout p {
+  margin: 0;
+}
+
+/* line 65, ../sass/application.scss */
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #d9534f;
+}
+
+/* line 70, ../sass/application.scss */
+.bs-callout-warning {
+  background-color: #fcf8f2;
+  border-color: #f0ad4e;
+}
+
+/* line 75, ../sass/application.scss */
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #5bc0de;
+}
+
+/* line 80, ../sass/application.scss */
+.main-container {
+  padding: 30px 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* line 85, ../sass/application.scss */
+.main-header {
+  margin-bottom: 30px;
+  padding: 0 30px 30px;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+/* line 92, ../sass/application.scss */
+.main-header h1 {
+  margin: 0;
+  color: #a8a8a8;
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: normal;
+  font-size: 3.5em;
+}
+
+/* line 101, ../sass/application.scss */
+.main-footer {
+  margin-top: 30px;
+  padding: 0 30px 30px;
+  color: #a8a8a8;
+  font-size: 1.2em;
+}
+
+/* line 109, ../sass/application.scss */
+.main-content {
+  color: #494949;
+}
+
+/* line 113, ../sass/application.scss */
+.breadcrumbs {
+  margin: 0 0 60px;
+  padding: 0 30px;
+  font-size: 0.9em;
+  word-spacing: 5px;
+}
+/* line 123, ../sass/application.scss */
+.breadcrumbs a, .breadcrumbs span, .breadcrumbs .root {
+  word-spacing: normal;
+}
+
+/* line 128, ../sass/application.scss */
+.customers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 133, ../sass/application.scss */
+.customers li, .customers .single {
+  display: block;
+  background: #f1f1f1;
+}
+/* line 137, ../sass/application.scss */
+.customers li ~ li, .customers li ~ .single, .customers .single ~ li, .customers .single ~ .single {
+  margin-top: 1px;
+}
+/* line 141, ../sass/application.scss */
+.customers li:nth-child(even), .customers .single:nth-child(even) {
+  background: #e3e3e3;
+}
+
+/* line 147, ../sass/application.scss */
+.customer-container {
+  position: relative;
+  padding: 20px 30px 30px 143px;
+  min-height: 160px;
+}
+/* line 152, ../sass/application.scss */
+.customer-container .customer-header {
+  margin-bottom: 20px;
+}
+/* line 155, ../sass/application.scss */
+.customer-container .customer-header h2, .customer-container .customer-header .title {
+  display: inline-block;
+  margin: 0;
+}
+/* line 160, ../sass/application.scss */
+.customer-container .customer-header h2 .points, .customer-container .customer-header .title .points {
+  display: inline-block;
+  margin-left: 15px;
+  color: inherit;
+}
+/* line 168, ../sass/application.scss */
+.customer-container .avatar {
+  position: absolute;
+  z-index: 10;
+  top: -20px;
+  left: 30px;
+  display: inline-block;
+  width: 83px;
+}
+/* line 176, ../sass/application.scss */
+.customer-container .avatar .image-place {
+  width: 83px;
+  height: 78px;
+  border-radius: 2px;
+  background: #a3a3a3;
+  overflow: hidden;
+}
+/* line 184, ../sass/application.scss */
+.customer-container .avatar .call-to-action {
+  margin: 20px 0 0;
+}
+/* line 189, ../sass/application.scss */
+.customer-container .latest-transaction {
+  font-size: 1.2em;
+  line-height: 36px;
+}
+/* line 195, ../sass/application.scss */
+.customer-container .new-transaction {
+  margin: 40px 0;
+  padding: 30px 0;
+  border-top: 1px solid #919191;
+  border-bottom: 1px solid #919191;
+}
+/* line 203, ../sass/application.scss */
+.customer-container .history h3, .customer-container .history .title {
+  margin: 0 0 25px;
+  font-size: 1.2em;
+}
+/* line 209, ../sass/application.scss */
+.customer-container .history .transactions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 214, ../sass/application.scss */
+.customer-container .history .transactions li, .customer-container .history .transactions .single {
+  display: block;
+}
+/* line 217, ../sass/application.scss */
+.customer-container .history .transactions li ~ li, .customer-container .history .transactions li ~ .single, .customer-container .history .transactions .single ~ li, .customer-container .history .transactions .single ~ .single {
+  margin-top: 15px;
+}
+/* line 222, ../sass/application.scss */
+.customer-container .history .transactions p {
+  margin: 0;
+  font-size: 1.1em;
+}
+/* line 227, ../sass/application.scss */
+.customer-container .history .transactions small {
+  font-size: 1em;
+}
+
+@media (min-width: 992px) {
+  /* line 235, ../sass/application.scss */
+  .main-container {
+    padding-left: 250px;
+  }
+  /* line 238, ../sass/application.scss */
+  .main-container .visual-element {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    height: auto;
+    background: #333;
+  }
+}

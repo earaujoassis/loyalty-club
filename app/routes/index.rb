@@ -17,7 +17,7 @@ module Hectic
         css_compression :sass
       end
 
-      get /\A((\/\Z))/ do
+      get /\A((\/\Z)|\/customers)/ do
         erb :index
       end
     end

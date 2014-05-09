@@ -1,0 +1,248 @@
+@import "http://fonts.googleapis.com/css?family=Raleway:400,500,600,300";
+@import "http://fonts.googleapis.com/css?family=Maven+Pro";
+@import "/components/bootstrap/dist/css/bootstrap.min.css";
+@import "/components/normalize-css/normalize.css";
+
+a {
+    &, &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.light {
+    font-weight: 300;
+}
+
+.regular {
+    font-weight: 400;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+.positive {
+    color: #3cd513;
+}
+
+.nil {
+    color: #e6521f;
+}
+
+.old {
+    color: #ddbc1e;
+}
+
+.number {
+    position: relative;
+    //top: -2px;
+    @extend .medium;
+    font-size: 1.5em;
+}
+
+.btn-primary {
+    &, &:hover {
+        background: #6ec1dd;
+        border-color: #6ec1dd;
+    }
+}
+
+.bs-callout {
+    margin: 0 0 30px;
+    padding: 15px 20px;
+    border-left: 3px solid #eee;
+
+    p {
+        margin: 0;
+    }
+}
+
+.bs-callout-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.bs-callout-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+
+.bs-callout-info {
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
+
+.main-container {
+    padding: 30px 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.main-header {
+    margin-bottom: 30px;
+    padding: 0 30px 30px;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.main-header {
+    h1 {
+        margin: 0;
+        color: #a8a8a8;
+        font-family: 'Maven Pro', sans-serif;
+        font-weight: normal;
+        font-size: 3.5em;
+    }
+}
+
+.main-footer {
+    margin-top: 30px;
+    padding: 0 30px 30px;
+    color: #a8a8a8;
+    @extend .regular;
+    font-size: 1.2em;
+}
+
+.main-content {
+    color: #494949;
+}
+
+.breadcrumbs {
+    margin: 0 0 60px;
+    padding: 0 30px;
+    font-size: 0.9em;
+    word-spacing: 5px;
+
+    a, .root {
+        @extend .semi-bold;
+    }
+
+    a, span, .root {
+        word-spacing: normal;
+    }
+}
+
+.customers {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li, .single {
+        display: block;
+        background: #f1f1f1;
+
+        & ~ li, & ~ .single {
+            margin-top: 1px;
+        }
+
+        &:nth-child(even) {
+            background: #e3e3e3;
+        }
+    }
+}
+
+.customer-container {
+    position: relative;
+    padding: 20px 30px 30px 143px;
+    min-height: 160px;
+
+    .customer-header {
+        margin-bottom: 20px;
+
+        h2, .title {
+            display: inline-block;
+            margin: 0;
+            @extend .regular;
+
+            .points {
+                display: inline-block;
+                margin-left: 15px;
+                color: inherit;
+            }
+        }
+    }
+
+    .avatar {
+        position: absolute;
+        z-index: 10;
+        top: -20px;
+        left: 30px;
+        display: inline-block;
+        width: 83px;
+
+        .image-place {
+            width: 83px;
+            height: 78px;
+            border-radius: 2px;
+            background: #a3a3a3;
+            overflow: hidden;
+        }
+
+        .call-to-action {
+            margin: 20px 0 0;
+        }
+    }
+
+    .latest-transaction {
+        @extend .light;
+        font-size: 1.2em;
+        line-height: 36px;
+    }
+
+    .new-transaction {
+        margin: 40px 0;
+        padding: 30px 0;
+        border-top: 1px solid #919191;
+        border-bottom: 1px solid #919191;
+    }
+
+    .history {
+        h3, .title {
+            margin: 0 0 25px;
+            @extend .medium;
+            font-size: 1.2em;
+        }
+
+        .transactions {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li, .single {
+                display: block;
+
+                & ~ li, & ~ .single {
+                    margin-top: 15px;
+                }
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.1em;
+            }
+
+            small {
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .main-container {
+        padding-left: 250px;
+
+        .visual-element {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: auto;
+            background: #333;
+        }
+    }
+}

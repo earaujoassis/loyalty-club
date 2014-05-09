@@ -10,6 +10,7 @@
   * Bower (Node.js + NPM)
   * Postgres 9.1
 
+
   ```sh
   $ apt-get install postgresql-server-dev-all postgresql-contrib-9.1
   ```

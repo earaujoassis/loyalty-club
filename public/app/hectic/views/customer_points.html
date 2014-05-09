@@ -1,0 +1,59 @@
+<div class="breadcrumbs"><a class="root" href="/">Customers</a> &gt; <span ng-bind="customer.full_name"></span></div>
+<section class="customer-container" ng-show="customer.id">
+  <header class="customer-header">
+    <div class="avatar">
+      <div class="image-place"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABOBAMAAACu1Dd2AAAAJFBMVEUAAACu0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2L/uEVAAAAC3RSTlMASKMP8DDbv3dlHnB3vIoAAAEVSURBVEjHYxgFo2AUjAIsgFFlt5MAUSpZs3fv3r0tgBil0ltajSO8NxJj6O5iIGm+mwhj2baDqeoEwkpnO4Mp652ElWZPAFOc24hwqgGYZibsWM5NUIZ2AyGlTDthblYgGABboYxogkHAvQvKWL2BoNLNUIY1WUopdwAbLJ1IE/QW0w4oo1uBYBRshzKqJxBSyrzbAE4TAtoNsAgmnAkcwBQLEdmAHeKv7gIi8uvuBUCSazcxeVYbFKBmm4jKsdsNGJirNxJhv/bu3R6hLbt3byLkghXeu52miu8ujFTZvaULr8pFu7e1wjRl79bC6/tNAchOweMGlu0ByJm32gGP0t2oAI9SRm8UlVsEGEbBKBgFQxQAAGIAV4TZ1n7pAAAAAElFTkSuQmCC" alt="Avatar replacement"></div>
+    </div>
+    <h2 class="title"><span ng-bind="customer.full_name"></span> <small class="points">(<points value="latest_transaction.current_points" standard="0" />)</small></h2>
+  </header>
+  <div class="customer-content">
+    <p class="latest-transaction" ng-show="latest_transaction.id"><span class="regular">Latest</span>: <span ng-show="latest_transaction.description" ng-bind="latest_transaction.description"></span> (from <points value="latest_transaction.previous_points" /> to <points value="latest_transaction.current_points" />)</p>
+    <div class="new-transaction">
+      <form name="transactionForm" novalidate>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bs-callout bs-callout-info">
+              <p>Tips: an amount is required and it must be an integer value (eg. -100, 100); a description is optional.</p>
+            </div>
+            <div class="bs-callout bs-callout-danger" ng-show="overAttempting">
+              <p>Cannot redeem more points than the customer has in its current balance (<span ng-bind="transaction.balance"></span> from <span ng-bind="latest_transaction.current_points || 0"></span>)</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <input ng-model="transaction.description" type="text" class="form-control" placeholder="Description (optional)">
+          </div>
+          <div class="col-md-5">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Points issuance</a></li>
+                  <li><a href="#">Points redemption</a></li>
+                </ul>
+              </div>
+              <input ng-change="overAttempting = false" ng-model="transaction.balance" required type="text" ng-pattern="/^[-]?[1-9][0-9]*$/" class="form-control" placeholder="Amount">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary" ng-disabled="transactionForm.$invalid" ng-click="saveTransaction(transaction)">Save</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </form>
+    </div>
+    <div class="history">
+      <h3 class="title">History of transactions</h3>
+      <ul class="transactions">
+        <li ng-repeat="transaction in history_transactions" class="single">
+          <p ng-show="transaction.description" ng-bind="transaction.description"></p>
+          <small>From <points value="transaction.previous_points" /> to <points value="transaction.current_points" /> &mdash; <time datetime="{{ transaction.created_at }}" ng-bind="transaction.created_at | date : 'MMM d, y @ h a'"></time></small>
+        </li>
+        <li ng-show="history_transactions.length === 0" class="single">
+          <p>None yet</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

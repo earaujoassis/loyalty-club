@@ -6,7 +6,7 @@ module Hectic
       end
 
       get '/v1/customers/:id/current_points/?' do
-        json LoyaltyPoint.where(:customer_id => params[:id]).ordered.first
+        json LoyaltyPoint.where(:customer_id => params[:id]).ordered.first!
       end
 
       post '/v1/customers/:id/points/?' do
