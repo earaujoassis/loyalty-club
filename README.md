@@ -24,6 +24,7 @@ able to create a `.env` file (see `.sample.env` for instructions).
 ## Testing
 
   ```sh
+  $ createdb loyalty_club_testing
   $ rspec
   ```
 
