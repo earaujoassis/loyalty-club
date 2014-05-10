@@ -22,15 +22,13 @@ define(["angular", "hectic"], function (angular) {
                     });
 
                 PointsService
-                    .getLatest($routeParams.id)
-                    .then(function (value) {
-                        $scope.latest_transaction = value;
-                    });
-
-                PointsService
                     .findAll($routeParams.id)
                     .then(function (value) {
                         $scope.history_transactions = value;
+                        if (!!value.length && value.length > 0) {
+                            // The latest transaction is the first transaction on history
+                            $scope.latest_transaction = value[0];
+                        }
                     });
             }
 
