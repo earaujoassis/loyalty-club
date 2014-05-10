@@ -25,8 +25,6 @@ define(["angular", "hectic"], function (angular) {
                     .getLatest($routeParams.id)
                     .then(function (value) {
                         $scope.latest_transaction = value;
-                    }, function (reason) {
-                        /* FIX Create an interceptor for the 404 error */
                     });
 
                 PointsService
