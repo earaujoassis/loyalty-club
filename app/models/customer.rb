@@ -16,6 +16,12 @@ module Hectic
           created_at: created_at
         }
       end
+
+      def validate!
+        if full_name.nil? || full_name.to_s.empty? || !valid?
+          raise Sequel::ValidationFailed, 'Validation failed on Customer model'
+        end
+      end
     end
   end
 end

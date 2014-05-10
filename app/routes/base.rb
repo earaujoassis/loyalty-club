@@ -23,9 +23,19 @@ module Hectic
         }
       end
 
+      error Sequel::DatabaseError do
+        status 500
+        json error: {
+          type: 'database_error',
+          messages: env['sinatra.error'].to_s
+        }
+      end
+
       error Sequel::NoMatchingRow do
         status 404
-        json error: {type: 'unknown_record'}
+        json error: {
+          type: 'unknown_record'
+        }
       end
     end
   end
