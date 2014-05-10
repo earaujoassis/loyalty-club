@@ -1,11 +1,9 @@
 <!doctype html>
-<html dir="ltr" lang="en" class="no-js">
+<html dir="ltr" lang="en">
   <head>
     <title>Loyalty Club</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="referrer" content="always"/>
-    <meta name="fragment" content="!">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
@@ -15,7 +13,7 @@
       <div class="visual-element"></div>
       <header class="main-header"><h1>Loyalty Club</h1></header>
       <div class="main-content" ng-view></div>
-      <footer class="main-footer"><p>&copy; 2014 Ewerton Assis</p></footer>
+      <footer class="main-footer"><p>&copy; <%= Time.now.strftime('%Y') %> <a href="//ewerton-araujo.com">Ewerton Assis</a></p></footer>
     </div>
     <script data-main="/app/main" src="/components/requirejs/require.js"></script>
   </body>
