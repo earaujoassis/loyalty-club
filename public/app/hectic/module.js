@@ -86,11 +86,22 @@ define(["angular"], function (angular) {
 
             $httpProvider.interceptors.push(function ($q) {
                 return {
-                    'responseError': function (rejection) {
+                    "responseError": function (rejection) {
                         var deferred = $q.defer();
 
                         if (rejection.status === 406 || rejection.status === 404) {
                             deferred.resolve(rejection);
+                        } else if (rejection.status === 500) {
+                            if (typeof rejection.data === "object") {
+                                deferred.resolve(rejection);
+                            } else {
+                                try {
+                                    rejection.data = JSON.parse(rejection.data);
+                                    deferred.resolve(rejection);
+                                } catch (err) {
+                                    deferred.reject(rejection);
+                                }
+                            }
                         } else {
                             deferred.reject(rejection);
                         }
