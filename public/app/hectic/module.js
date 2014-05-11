@@ -92,7 +92,7 @@ define(["angular"], function (angular) {
                         if (rejection.status === 406 || rejection.status === 404) {
                             deferred.resolve(rejection);
                         } else if (rejection.status === 500) {
-                            if (typeof rejection.data === "object") {
+                            if (angular.isObject(rejection.data)) {
                                 deferred.resolve(rejection);
                             } else {
                                 try {
