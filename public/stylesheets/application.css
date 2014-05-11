@@ -24,7 +24,7 @@ a, a:hover {
 }
 
 /* line 25, ../sass/application.scss */
-.semi-bold, .breadcrumbs a, .breadcrumbs .root {
+.semi-bold, .breadcrumbs a, .breadcrumbs .root, .internal-menu {
   font-weight: 600;
 }
 
@@ -85,19 +85,47 @@ a, a:hover {
 }
 
 /* line 80, ../sass/application.scss */
+.common-padding, .front-data {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+/* line 85, ../sass/application.scss */
+.common-bottom, .front-data {
+  margin-bottom: 60px;
+}
+
+/* line 89, ../sass/application.scss */
+.reset-list, .menu, .customers, .customer-container .history .transactions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 95, ../sass/application.scss */
+.form-context, .customer-container .new-transaction {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #919191;
+  border-bottom: 1px solid #919191;
+}
+
+/* line 104, ../sass/application.scss */
 .main-container {
   padding: 30px 0;
   font-family: 'Raleway', sans-serif;
 }
 
-/* line 85, ../sass/application.scss */
+/* line 109, ../sass/application.scss */
 .main-header {
   margin-bottom: 30px;
   padding: 0 30px 30px;
   border-bottom: 1px solid #d2d2d2;
 }
 
-/* line 92, ../sass/application.scss */
+/* line 116, ../sass/application.scss */
 .main-header h1 {
   margin: 0;
   color: #a8a8a8;
@@ -106,7 +134,7 @@ a, a:hover {
   font-size: 3.5em;
 }
 
-/* line 101, ../sass/application.scss */
+/* line 125, ../sass/application.scss */
 .main-footer {
   margin-top: 30px;
   padding: 0 30px 30px;
@@ -114,65 +142,63 @@ a, a:hover {
   font-size: 1.2em;
 }
 
-/* line 109, ../sass/application.scss */
+/* line 133, ../sass/application.scss */
 .main-content {
   color: #494949;
 }
 
-/* line 113, ../sass/application.scss */
+/* line 137, ../sass/application.scss */
 .breadcrumbs {
-  margin: 0 0 60px;
-  padding: 0 30px;
   font-size: 0.9em;
   word-spacing: 5px;
 }
-/* line 123, ../sass/application.scss */
+/* line 145, ../sass/application.scss */
 .breadcrumbs a, .breadcrumbs span, .breadcrumbs .root {
   word-spacing: normal;
 }
 
-/* line 128, ../sass/application.scss */
-.customers {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* line 154, ../sass/application.scss */
+.internal-menu {
+  color: #6ec1dd;
+  text-align: right;
 }
-/* line 133, ../sass/application.scss */
+
+/* line 168, ../sass/application.scss */
 .customers li, .customers .single {
   display: block;
   background: #f1f1f1;
 }
-/* line 137, ../sass/application.scss */
+/* line 172, ../sass/application.scss */
 .customers li ~ li, .customers li ~ .single, .customers .single ~ li, .customers .single ~ .single {
   margin-top: 1px;
 }
-/* line 141, ../sass/application.scss */
+/* line 176, ../sass/application.scss */
 .customers li:nth-child(even), .customers .single:nth-child(even) {
   background: #e3e3e3;
 }
 
-/* line 147, ../sass/application.scss */
+/* line 182, ../sass/application.scss */
 .customer-container {
   position: relative;
   padding: 20px 30px 30px 143px;
   min-height: 160px;
 }
-/* line 152, ../sass/application.scss */
+/* line 187, ../sass/application.scss */
 .customer-container .customer-header {
   margin-bottom: 20px;
 }
-/* line 155, ../sass/application.scss */
+/* line 190, ../sass/application.scss */
 .customer-container .customer-header h2, .customer-container .customer-header .title {
   display: inline-block;
   margin: 0;
 }
-/* line 160, ../sass/application.scss */
+/* line 195, ../sass/application.scss */
 .customer-container .customer-header h2 .points, .customer-container .customer-header .title .points {
   display: inline-block;
   margin-left: 15px;
   color: inherit;
 }
-/* line 168, ../sass/application.scss */
+/* line 203, ../sass/application.scss */
 .customer-container .avatar {
   position: absolute;
   z-index: 10;
@@ -181,7 +207,7 @@ a, a:hover {
   display: inline-block;
   width: 83px;
 }
-/* line 176, ../sass/application.scss */
+/* line 211, ../sass/application.scss */
 .customer-container .avatar .image-place {
   width: 83px;
   height: 78px;
@@ -189,57 +215,44 @@ a, a:hover {
   background: #a3a3a3;
   overflow: hidden;
 }
-/* line 184, ../sass/application.scss */
+/* line 219, ../sass/application.scss */
 .customer-container .avatar .call-to-action {
   margin: 20px 0 0;
 }
-/* line 189, ../sass/application.scss */
+/* line 224, ../sass/application.scss */
 .customer-container .latest-transaction {
   font-size: 1.2em;
   line-height: 36px;
 }
-/* line 195, ../sass/application.scss */
-.customer-container .new-transaction {
-  margin: 40px 0;
-  padding: 30px 0;
-  border-top: 1px solid #919191;
-  border-bottom: 1px solid #919191;
-}
-/* line 203, ../sass/application.scss */
+/* line 235, ../sass/application.scss */
 .customer-container .history h3, .customer-container .history .title {
   margin: 0 0 25px;
   font-size: 1.2em;
 }
-/* line 209, ../sass/application.scss */
-.customer-container .history .transactions {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-/* line 214, ../sass/application.scss */
+/* line 244, ../sass/application.scss */
 .customer-container .history .transactions li, .customer-container .history .transactions .single {
   display: block;
 }
-/* line 217, ../sass/application.scss */
+/* line 247, ../sass/application.scss */
 .customer-container .history .transactions li ~ li, .customer-container .history .transactions li ~ .single, .customer-container .history .transactions .single ~ li, .customer-container .history .transactions .single ~ .single {
   margin-top: 15px;
 }
-/* line 222, ../sass/application.scss */
+/* line 252, ../sass/application.scss */
 .customer-container .history .transactions p {
   margin: 0;
   font-size: 1.1em;
 }
-/* line 227, ../sass/application.scss */
+/* line 257, ../sass/application.scss */
 .customer-container .history .transactions small {
   font-size: 1em;
 }
 
 @media (min-width: 992px) {
-  /* line 235, ../sass/application.scss */
+  /* line 265, ../sass/application.scss */
   .main-container {
     padding-left: 250px;
   }
-  /* line 238, ../sass/application.scss */
+  /* line 268, ../sass/application.scss */
   .main-container .visual-element {
     position: fixed;
     top: 0;

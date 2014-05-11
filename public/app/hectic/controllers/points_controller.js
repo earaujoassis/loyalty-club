@@ -4,10 +4,9 @@ define(["angular", "hectic"], function (angular) {
     angular.module("app.controllers").controller("PointsController", [
         "$scope",
         "$routeParams",
-        "$location",
         "CustomersService",
         "PointsService",
-        function ($scope, $routeParams, $location, CustomersService, PointsService) {
+        function ($scope, $routeParams, CustomersService, PointsService) {
             $scope.customer = {};
             $scope.latest_transaction = {};
             $scope.history_transactions = [];
@@ -56,7 +55,6 @@ define(["angular", "hectic"], function (angular) {
                 PointsService
                     .create($routeParams.id, transaction)
                     .then(function (value) {
-                        /* FIX Create an interceptor for the 406 error */
                         if (!!value.id) {
                             $scope.latest_transaction = value;
                             $scope.history_transactions.unshift(value);

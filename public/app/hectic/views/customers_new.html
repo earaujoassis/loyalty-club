@@ -1,0 +1,20 @@
+<div class="front-data">
+  <div class="breadcrumbs"><a class="root" href="/">Customers</a> &gt; <span>New customer</span></div>
+</div>
+<div class="common-padding">
+  <div class="form-context">
+    <form name="customerForm" novalidate>
+      <div class="bs-callout bs-callout-info">
+        <p>Tips: full name is a required field; format: <i>&quot;First Last&quot;</i>.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <input required ng-model="customer.full_name" ng-pattern="/[A-Z][a-z]+[ ][A-Z][a-z]+/" type="text" class="form-control" placeholder="Full name">
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary" ng-disabled="customerForm.$invalid" ng-click="saveCustomer(customer)">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -27,6 +27,11 @@ define(["angular"], function (angular) {
                     templateUrl: "/app/hectic/views/customers_index.html",
                     public: true
                 })
+                .when("/customers/new", {
+                    controller: "CustomersController",
+                    templateUrl: "/app/hectic/views/customers_new.html",
+                    public: true
+                })
                 .when("/customers/:id/points", {
                     controller: "PointsController",
                     templateUrl: "/app/hectic/views/customer_points.html",
@@ -78,6 +83,22 @@ define(["angular"], function (angular) {
             $httpProvider.defaults.transformRequest = [function(data) {
                 return angular.isObject(data) && String(data) !== "[object File]" ? param(data) : data;
             }];
+
+            $httpProvider.interceptors.push(function ($q) {
+                return {
+                    'responseError': function (rejection) {
+                        var deferred = $q.defer();
+
+                        if (rejection.status === 406 || rejection.status === 404) {
+                            deferred.resolve(rejection);
+                        } else {
+                            deferred.reject(rejection);
+                        }
+
+                        return deferred.promise;
+                    }
+                };
+            });
 
         }
     ]);

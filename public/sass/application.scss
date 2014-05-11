@@ -77,6 +77,30 @@ a {
     border-color: #5bc0de;
 }
 
+.common-padding {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.common-bottom {
+    margin-bottom: 60px;
+}
+
+.reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.form-context {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+}
+
 .main-container {
     padding: 30px 0;
     font-family: 'Raleway', sans-serif;
@@ -111,8 +135,6 @@ a {
 }
 
 .breadcrumbs {
-    margin: 0 0 60px;
-    padding: 0 30px;
     font-size: 0.9em;
     word-spacing: 5px;
 
@@ -125,10 +147,23 @@ a {
     }
 }
 
+.menu {
+    @extend .reset-list;
+}
+
+.internal-menu {
+    color: #6ec1dd;
+    @extend .semi-bold;
+    text-align: right;
+}
+
+.front-data {
+    @extend .common-padding;
+    @extend .common-bottom;
+}
+
 .customers {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    @extend .reset-list;
 
     li, .single {
         display: block;
@@ -193,10 +228,7 @@ a {
     }
 
     .new-transaction {
-        margin: 40px 0;
-        padding: 30px 0;
-        border-top: 1px solid #919191;
-        border-bottom: 1px solid #919191;
+        @extend .form-context;
     }
 
     .history {
@@ -207,9 +239,7 @@ a {
         }
 
         .transactions {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+            @extend .reset-list;
 
             li, .single {
                 display: block;

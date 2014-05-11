@@ -1,4 +1,17 @@
-<div class="breadcrumbs"><a class="root" href="/">Customers</a> &gt; <span ng-bind="customer.full_name"></span></div>
+<div class="front-data">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="breadcrumbs"><a class="root" href="/">Customers</a> &gt; <span ng-bind="customer.full_name"></span></div>
+    </div>
+    <div class="col-md-6">
+      <div class="internal-menu">
+        <ul class="menu" role="menu">
+          <li><a href="/customers/new">New customer</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="customer-container" ng-show="customer.id">
   <header class="customer-header">
     <div class="avatar">

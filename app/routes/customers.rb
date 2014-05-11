@@ -2,7 +2,7 @@ module Hectic
   module Routes
     class Customers < Base
       get '/v1/customers/?' do
-        json Customer.all
+        json Customer.ordered.all
       end
 
       get '/v1/customers/:id/?' do
