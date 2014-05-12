@@ -5,11 +5,11 @@
   <div class="form-context">
     <form name="customerForm" novalidate>
       <div class="bs-callout bs-callout-info">
-        <p>Tips: full name is a required field; format: <i>&quot;First Last&quot;</i>.</p>
+        <p>Tips: full name is a required field and it must have at least two characters.</p>
       </div>
       <div class="row">
         <div class="col-md-5">
-          <input required ng-model="customer.full_name" ng-pattern="/[A-Z][a-z]+[ ][A-Z][a-z]+/" type="text" class="form-control" placeholder="Full name">
+          <input required ng-model="customer.full_name" ng-pattern="/[A-Za-z][A-Za-z]+/" type="text" class="form-control" placeholder="Full name">
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-primary" ng-disabled="customerForm.$invalid" ng-click="saveCustomer(customer)">Save</button>
