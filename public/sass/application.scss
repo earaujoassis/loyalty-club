@@ -1,5 +1,5 @@
 @import "http://fonts.googleapis.com/css?family=Raleway:400,500,600,300";
-@import "http://fonts.googleapis.com/css?family=Maven+Pro";
+@import "http://fonts.googleapis.com/css?family=Lato:700";
 @import "/components/bootstrap/dist/css/bootstrap.min.css";
 @import "/components/normalize-css/normalize.css";
 
@@ -8,6 +8,47 @@ a {
         text-decoration: none;
         color: inherit;
     }
+}
+
+.icons-menu {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAMAAADm3a4bAAAAWlBMVEUAAABuwd3takztakxuwd3takztakznb1Vuwd3takxuwd1uwd1uwd3takztakztakxuwd1uwd3takztakxuwd1uwd1uwd3takxuwd1uwd1uwd1uwd1uwd3takwWOYh1AAAAHHRSTlMACEXI1vhaA6w2XYwy1vEiGJm8lKRM7bZxfK2/4Uf4iAAAAO1JREFUOMuN04kOgyAMBuCiHBvX0OlO+v6vOZWosMyOPzEhqV+kFWDN2A2aARkl7wLFXarvwilO4aS+OEQU0+MuZUHHJQ/KCmwbBappUZS6S3gg9uzwqtLqiq7YuUnYHGOJ7SpUi7JsecnrGPfYbOsG+7zEE+bHWKDaW0D/o+fuGBfve8xLLGFW+2VR1AZy2HTPYGdsoXraJKb/M57ziuYz5ppVnTDcNRvNLa7Rf862n+Wu7ST3BG6oW+VR9PK86ZDTdwjpatHZtMmxXVo31ZrneDR8HhvUaQcxz02zyMMDKjU8T0WC0fYJNdoL+QEqcB5bgmOc6gAAAABJRU5ErkJggg==);
+}
+
+.icon-customer {
+    @extend .icons-menu;
+    background-position: 0 0;
+}
+
+.icon-search {
+    @extend .icons-menu;
+    background-position: -32px 0;
+    margin-left: 8px;
+    padding-left: 8px;
+    width: 30px;
+    border-left: 1px solid #ed6a4c;
+}
+
+.icons-transactions {
+    display: inline-block;
+    margin-right: 5px;
+    width: 13px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.icon-redeem {
+    @extend .icons-transactions;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAMAAAAI/bVFAAAANlBMVEUAAABbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukf1GKIrAAAAEXRSTlMAWwLa6sQTt8oriYR2lZE//O5eZcQAAABMSURBVAjXpY9BFoAgCAVRQcWs3r//ZYOol/tmNbOCT05t6EoPyjDOiIQgmecNLyPTwMdBWKGyRCEVns2sT5a4cpfLr/J39tDYINXlAgFUBmhxg9otAAAAAElFTkSuQmCC);
+}
+
+.icon-issue {
+    @extend .icons-transactions;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAMAAAAI/bVFAAAAOVBMVEUAAADlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyVZ5BsOAAAAEnRSTlMA6sJbEy2SuMqFdtk/1sYlBvQl3S1iAAAAS0lEQVQI153Pyw6AIAxE0SnQ8lAxmf//WAOp4NqzmrtrMaTAnPAyknVVJ5lXlR+lQdqsJl1xcTvALxg3A6pPPyd6REzn2KJwd/EfHlBHBp3Q5aSTAAAAAElFTkSuQmCC);
 }
 
 .light {
@@ -26,11 +67,11 @@ a {
     font-weight: 600;
 }
 
-.positive {
+.positive, .green {
     color: #3cd513;
 }
 
-.nil {
+.nil, .red {
     color: #e6521f;
 }
 
@@ -102,23 +143,47 @@ a {
 }
 
 .main-container {
+    position: relative;
     padding: 30px 0;
     font-family: 'Raleway', sans-serif;
+
+    .fixed-content {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 420px;
+        border-right: 1px solid #ddd;
+    }
+
+    .flexible-content {
+        margin-left: 420px;
+    }
 }
 
 .main-header {
-    margin-bottom: 30px;
-    padding: 0 30px 30px;
+    padding: 20px 30px;
     border-bottom: 1px solid #d2d2d2;
-}
 
-.main-header {
     h1 {
+        display: inline-block;
         margin: 0;
-        color: #a8a8a8;
-        font-family: 'Maven Pro', sans-serif;
-        font-weight: normal;
-        font-size: 3.5em;
+        color: #ed6a4c;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        font-size: 1.9em;
+    }
+
+    .menu {
+        position: relative;
+        top: 4px;
+        float: right;
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 }
 
@@ -160,32 +225,25 @@ a {
 .front-data {
     @extend .common-padding;
     @extend .common-bottom;
-}
 
-.customers {
-    @extend .reset-list;
+    .title {
+        margin: 0;
+        @extend .regular;
+    }
 
-    li, .single {
-        display: block;
-        background: #f1f1f1;
-
-        & ~ li, & ~ .single {
-            margin-top: 1px;
-        }
-
-        &:nth-child(even) {
-            background: #e3e3e3;
-        }
+    &.jumbotron-like {
+        margin-bottom: -32px;
     }
 }
 
 .customer-container {
-    position: relative;
-    padding: 20px 30px 30px 143px;
-    min-height: 160px;
+    padding: 20px 40px 40px;
 
     .customer-header {
+        position: relative;
         margin-bottom: 20px;
+        padding-left: 113px;
+        min-height: 62px;
 
         h2, .title {
             display: inline-block;
@@ -203,8 +261,8 @@ a {
     .avatar {
         position: absolute;
         z-index: 10;
-        top: -20px;
-        left: 30px;
+        top: -16px;
+        left: 0;
         display: inline-block;
         width: 83px;
 
@@ -222,9 +280,10 @@ a {
     }
 
     .latest-transaction {
+        margin: 0;
         @extend .light;
-        font-size: 1.2em;
-        line-height: 36px;
+        font-size: 1em;
+        line-height: 1.4;
     }
 
     .new-transaction {
@@ -261,18 +320,45 @@ a {
     }
 }
 
-@media (min-width: 992px) {
-    .main-container {
-        padding-left: 250px;
+.customers {
+    @extend .reset-list;
 
-        .visual-element {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 250px;
-            height: auto;
-            background: #333;
+    li, .single {
+        display: block;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    .customer-container {
+        padding: 20px 30px;
+
+        .customer-header {
+            position: relative;
+            padding: 0 20px 0 0;
+            margin-bottom: 5px;
+            min-height: 0;
+
+            h2, .title {
+                @extend .semi-bold;
+                font-size: 1.2em;
+
+                .points {
+                    color: inherit;
+                    @extend .regular;
+                    font-size: 0.9em;
+                }
+            }
+
+            .date {
+                position: absolute;
+                top: 4px;
+                right: 0;
+            }
         }
+    }
+
+    .latest-transaction {
+        margin-bottom: 0;
+        font-size: 0.9em;
+        line-height: 1.3;
     }
 }

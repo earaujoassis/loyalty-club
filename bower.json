@@ -34,6 +34,7 @@
     "angular-sanitize": "~1.2.16",
     "angular-ui-router": "~0.2.10",
     "requirejs": "<=2.1.9",
-    "async": "~0.8.0"
+    "async": "~0.8.0",
+    "perfect-scrollbar": "~0.4.10"
   }
 }

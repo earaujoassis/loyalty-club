@@ -10,10 +10,34 @@
   </head>
   <body>
     <div class="main-container" role="main" ng-controller="AppCtrl">
-      <div class="visual-element"></div>
-      <header class="main-header"><h1>Loyalty Club</h1></header>
-      <div class="main-content" ng-view></div>
-      <footer class="main-footer"><p>&copy; <%= Time.now.strftime('%Y') %> <a href="//ewerton-araujo.com">Ewerton Assis</a></p></footer>
+      <div class="fixed-content">
+        <header class="main-header">
+          <h1><a href="/">Loyalty Club</a></h1>
+          <div class="menu" role="menu"><a href="/customers/new"><i class="icon-customer"></i></a> <i class="icon-search"></i></div>
+        </header>
+        <div perfect-scrollbar class="scrollbar-container">
+          <div class="content">
+            <ul class="customers" ng-show="customers.length > 0">
+              <li ng-repeat="customer in customers" class="single">
+                <section class="customer-container">
+                  <header class="customer-header">
+                    <h2 class="title"><a ng-href="/customers/{{ customer.id }}/points" ng-bind="customer.full_name"></a> <small class="points">(<points value="customer.points.current_points" standard="0"></points>)</small></h2>
+                    <% # time class="date" datetime="{{ customer.points.created_at }}" ng-show="customer.points.id">2d</time %>
+                  </header>
+                  <div class="customer-content">
+                    <p class="latest-transaction" ng-show="customer.points.id"><i ng-class="{ 'icon-issue': (customer.points.current_points - customer.points.previous_points) < 0, 'icon-redeem': (customer.points.current_points - customer.points.previous_points) >= 0 }"></i> <span ng-bind="customer.points.description"></span> (from <points value="customer.points.previous_points"></points> to <points value="customer.points.current_points"></points> loyalty <ng-pluralize count="customer.points.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
+                    <p class="latest-transaction" ng-show="!customer.points.id">No transactions yet</p>
+                  </div>
+                </section>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="flexible-content">
+        <div class="main-content" ng-view></div>
+        <footer class="main-footer"><p>&copy; <%= Time.now.strftime('%Y') %> <a href="//ewerton-araujo.com">Ewerton Assis</a></p></footer>
+      </div>
     </div>
     <script data-main="/app/main" src="/components/requirejs/require.js"></script>
   </body>

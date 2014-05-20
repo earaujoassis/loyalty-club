@@ -1,5 +1,5 @@
 @import "http://fonts.googleapis.com/css?family=Raleway:400,500,600,300";
-@import "http://fonts.googleapis.com/css?family=Maven+Pro";
+@import "http://fonts.googleapis.com/css?family=Lato:700";
 @import url(/components/bootstrap/dist/css/bootstrap.min.css);
 @import url(/components/normalize-css/normalize.css);
 /* line 7, ../sass/application.scss */
@@ -9,100 +9,143 @@ a, a:hover {
 }
 
 /* line 13, ../sass/application.scss */
+.icons-menu, .icon-customer, .icon-search {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAMAAADm3a4bAAAAWlBMVEUAAABuwd3takztakxuwd3takztakznb1Vuwd3takxuwd1uwd1uwd3takztakztakxuwd1uwd3takztakxuwd1uwd1uwd3takxuwd1uwd1uwd1uwd1uwd3takwWOYh1AAAAHHRSTlMACEXI1vhaA6w2XYwy1vEiGJm8lKRM7bZxfK2/4Uf4iAAAAO1JREFUOMuN04kOgyAMBuCiHBvX0OlO+v6vOZWosMyOPzEhqV+kFWDN2A2aARkl7wLFXarvwilO4aS+OEQU0+MuZUHHJQ/KCmwbBappUZS6S3gg9uzwqtLqiq7YuUnYHGOJ7SpUi7JsecnrGPfYbOsG+7zEE+bHWKDaW0D/o+fuGBfve8xLLGFW+2VR1AZy2HTPYGdsoXraJKb/M57ziuYz5ppVnTDcNRvNLa7Rf862n+Wu7ST3BG6oW+VR9PK86ZDTdwjpatHZtMmxXVo31ZrneDR8HhvUaQcxz02zyMMDKjU8T0WC0fYJNdoL+QEqcB5bgmOc6gAAAABJRU5ErkJggg==);
+}
+
+/* line 21, ../sass/application.scss */
+.icon-customer {
+  background-position: 0 0;
+}
+
+/* line 26, ../sass/application.scss */
+.icon-search {
+  background-position: -32px 0;
+  margin-left: 8px;
+  padding-left: 8px;
+  width: 30px;
+  border-left: 1px solid #ed6a4c;
+}
+
+/* line 35, ../sass/application.scss */
+.icons-transactions, .icon-redeem, .icon-issue {
+  display: inline-block;
+  margin-right: 5px;
+  width: 13px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+/* line 44, ../sass/application.scss */
+.icon-redeem {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAMAAAAI/bVFAAAANlBMVEUAAABbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukdbukf1GKIrAAAAEXRSTlMAWwLa6sQTt8oriYR2lZE//O5eZcQAAABMSURBVAjXpY9BFoAgCAVRQcWs3r//ZYOol/tmNbOCT05t6EoPyjDOiIQgmecNLyPTwMdBWKGyRCEVns2sT5a4cpfLr/J39tDYINXlAgFUBmhxg9otAAAAAElFTkSuQmCC);
+}
+
+/* line 49, ../sass/application.scss */
+.icon-issue {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAMAAAAI/bVFAAAAOVBMVEUAAADlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyXlUyVZ5BsOAAAAEnRSTlMA6sJbEy2SuMqFdtk/1sYlBvQl3S1iAAAAS0lEQVQI153Pyw6AIAxE0SnQ8lAxmf//WAOp4NqzmrtrMaTAnPAyknVVJ5lXlR+lQdqsJl1xcTvALxg3A6pPPyd6REzn2KJwd/EfHlBHBp3Q5aSTAAAAAElFTkSuQmCC);
+}
+
+/* line 54, ../sass/application.scss */
 .light, .customer-container .latest-transaction {
   font-weight: 300;
 }
 
-/* line 17, ../sass/application.scss */
-.regular, .main-footer, .customer-container .customer-header h2, .customer-container .customer-header .title {
+/* line 58, ../sass/application.scss */
+.regular, .main-footer, .front-data .title, .customer-container .customer-header h2, .customer-container .customer-header .title, .customers .customer-container .customer-header h2 .points, .customers .customer-container .customer-header .title .points {
   font-weight: 400;
 }
 
-/* line 21, ../sass/application.scss */
+/* line 62, ../sass/application.scss */
 .medium, .number, .customer-container .history h3, .customer-container .history .title {
   font-weight: 500;
 }
 
-/* line 25, ../sass/application.scss */
-.semi-bold, .breadcrumbs a, .breadcrumbs .root, .internal-menu {
+/* line 66, ../sass/application.scss */
+.semi-bold, .breadcrumbs a, .breadcrumbs .root, .internal-menu, .customers .customer-container .customer-header h2, .customers .customer-container .customer-header .title {
   font-weight: 600;
 }
 
-/* line 29, ../sass/application.scss */
-.positive {
+/* line 70, ../sass/application.scss */
+.positive, .green {
   color: #3cd513;
 }
 
-/* line 33, ../sass/application.scss */
-.nil {
+/* line 74, ../sass/application.scss */
+.nil, .red {
   color: #e6521f;
 }
 
-/* line 37, ../sass/application.scss */
+/* line 78, ../sass/application.scss */
 .old {
   color: #ddbc1e;
 }
 
-/* line 41, ../sass/application.scss */
+/* line 82, ../sass/application.scss */
 .number {
   position: relative;
   font-size: 1.5em;
 }
 
-/* line 49, ../sass/application.scss */
+/* line 90, ../sass/application.scss */
 .btn-primary, .btn-primary:hover {
   background: #6ec1dd;
   border-color: #6ec1dd;
 }
 
-/* line 55, ../sass/application.scss */
+/* line 96, ../sass/application.scss */
 .bs-callout {
   margin: 0 0 30px;
   padding: 15px 20px;
   border-left: 3px solid #eee;
 }
-/* line 60, ../sass/application.scss */
+/* line 101, ../sass/application.scss */
 .bs-callout p {
   margin: 0;
 }
 
-/* line 65, ../sass/application.scss */
+/* line 106, ../sass/application.scss */
 .bs-callout-danger {
   background-color: #fdf7f7;
   border-color: #d9534f;
 }
 
-/* line 70, ../sass/application.scss */
+/* line 111, ../sass/application.scss */
 .bs-callout-warning {
   background-color: #fcf8f2;
   border-color: #f0ad4e;
 }
 
-/* line 75, ../sass/application.scss */
+/* line 116, ../sass/application.scss */
 .bs-callout-info {
   background-color: #f4f8fa;
   border-color: #5bc0de;
 }
 
-/* line 80, ../sass/application.scss */
+/* line 121, ../sass/application.scss */
 .common-padding, .front-data {
   padding-right: 30px;
   padding-left: 30px;
 }
 
-/* line 85, ../sass/application.scss */
+/* line 126, ../sass/application.scss */
 .common-bottom, .front-data {
   margin-bottom: 60px;
 }
 
-/* line 89, ../sass/application.scss */
-.reset-list, .menu, .customers, .customer-container .history .transactions {
+/* line 130, ../sass/application.scss */
+.reset-list, .menu, .customer-container .history .transactions, .customers {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* line 95, ../sass/application.scss */
+/* line 136, ../sass/application.scss */
 .form-context, .customer-container .new-transaction {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -112,29 +155,54 @@ a, a:hover {
   border-bottom: 1px solid #919191;
 }
 
-/* line 104, ../sass/application.scss */
+/* line 145, ../sass/application.scss */
 .main-container {
+  position: relative;
   padding: 30px 0;
   font-family: 'Raleway', sans-serif;
 }
+/* line 150, ../sass/application.scss */
+.main-container .fixed-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 420px;
+  border-right: 1px solid #ddd;
+}
+/* line 159, ../sass/application.scss */
+.main-container .flexible-content {
+  margin-left: 420px;
+}
 
-/* line 109, ../sass/application.scss */
+/* line 164, ../sass/application.scss */
 .main-header {
-  margin-bottom: 30px;
-  padding: 0 30px 30px;
+  padding: 20px 30px;
   border-bottom: 1px solid #d2d2d2;
 }
-
-/* line 116, ../sass/application.scss */
+/* line 168, ../sass/application.scss */
 .main-header h1 {
+  display: inline-block;
   margin: 0;
-  color: #a8a8a8;
-  font-family: 'Maven Pro', sans-serif;
-  font-weight: normal;
-  font-size: 3.5em;
+  color: #ed6a4c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1.9em;
+}
+/* line 177, ../sass/application.scss */
+.main-header .menu {
+  position: relative;
+  top: 4px;
+  float: right;
+}
+/* line 183, ../sass/application.scss */
+.main-header:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* line 125, ../sass/application.scss */
+/* line 190, ../sass/application.scss */
 .main-footer {
   margin-top: 30px;
   padding: 0 30px 30px;
@@ -142,72 +210,68 @@ a, a:hover {
   font-size: 1.2em;
 }
 
-/* line 133, ../sass/application.scss */
+/* line 198, ../sass/application.scss */
 .main-content {
   color: #494949;
 }
 
-/* line 137, ../sass/application.scss */
+/* line 202, ../sass/application.scss */
 .breadcrumbs {
   font-size: 0.9em;
   word-spacing: 5px;
 }
-/* line 145, ../sass/application.scss */
+/* line 210, ../sass/application.scss */
 .breadcrumbs a, .breadcrumbs span, .breadcrumbs .root {
   word-spacing: normal;
 }
 
-/* line 154, ../sass/application.scss */
+/* line 219, ../sass/application.scss */
 .internal-menu {
   color: #6ec1dd;
   text-align: right;
 }
 
-/* line 168, ../sass/application.scss */
-.customers li, .customers .single {
-  display: block;
-  background: #f1f1f1;
+/* line 229, ../sass/application.scss */
+.front-data .title {
+  margin: 0;
 }
-/* line 172, ../sass/application.scss */
-.customers li ~ li, .customers li ~ .single, .customers .single ~ li, .customers .single ~ .single {
-  margin-top: 1px;
-}
-/* line 176, ../sass/application.scss */
-.customers li:nth-child(even), .customers .single:nth-child(even) {
-  background: #e3e3e3;
+/* line 234, ../sass/application.scss */
+.front-data.jumbotron-like {
+  margin-bottom: -32px;
 }
 
-/* line 182, ../sass/application.scss */
+/* line 239, ../sass/application.scss */
 .customer-container {
-  position: relative;
-  padding: 20px 30px 30px 143px;
-  min-height: 160px;
+  padding: 20px 40px 40px;
 }
-/* line 187, ../sass/application.scss */
+/* line 242, ../sass/application.scss */
 .customer-container .customer-header {
+  position: relative;
   margin-bottom: 20px;
+  padding-left: 113px;
+  min-height: 62px;
 }
-/* line 190, ../sass/application.scss */
+/* line 248, ../sass/application.scss */
 .customer-container .customer-header h2, .customer-container .customer-header .title {
   display: inline-block;
   margin: 0;
 }
-/* line 195, ../sass/application.scss */
+/* line 253, ../sass/application.scss */
 .customer-container .customer-header h2 .points, .customer-container .customer-header .title .points {
   display: inline-block;
   margin-left: 15px;
   color: inherit;
 }
-/* line 203, ../sass/application.scss */
+/* line 261, ../sass/application.scss */
 .customer-container .avatar {
   position: absolute;
   z-index: 10;
-  top: -20px;
-  left: 30px;
+  top: -16px;
+  left: 0;
   display: inline-block;
   width: 83px;
 }
-/* line 211, ../sass/application.scss */
+/* line 269, ../sass/application.scss */
 .customer-container .avatar .image-place {
   width: 83px;
   height: 78px;
@@ -215,51 +279,73 @@ a, a:hover {
   background: #a3a3a3;
   overflow: hidden;
 }
-/* line 219, ../sass/application.scss */
+/* line 277, ../sass/application.scss */
 .customer-container .avatar .call-to-action {
   margin: 20px 0 0;
 }
-/* line 224, ../sass/application.scss */
+/* line 282, ../sass/application.scss */
 .customer-container .latest-transaction {
-  font-size: 1.2em;
-  line-height: 36px;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.4;
 }
-/* line 235, ../sass/application.scss */
+/* line 294, ../sass/application.scss */
 .customer-container .history h3, .customer-container .history .title {
   margin: 0 0 25px;
   font-size: 1.2em;
 }
-/* line 244, ../sass/application.scss */
+/* line 303, ../sass/application.scss */
 .customer-container .history .transactions li, .customer-container .history .transactions .single {
   display: block;
 }
-/* line 247, ../sass/application.scss */
+/* line 306, ../sass/application.scss */
 .customer-container .history .transactions li ~ li, .customer-container .history .transactions li ~ .single, .customer-container .history .transactions .single ~ li, .customer-container .history .transactions .single ~ .single {
   margin-top: 15px;
 }
-/* line 252, ../sass/application.scss */
+/* line 311, ../sass/application.scss */
 .customer-container .history .transactions p {
   margin: 0;
   font-size: 1.1em;
 }
-/* line 257, ../sass/application.scss */
+/* line 316, ../sass/application.scss */
 .customer-container .history .transactions small {
   font-size: 1em;
 }
 
-@media (min-width: 992px) {
-  /* line 265, ../sass/application.scss */
-  .main-container {
-    padding-left: 250px;
-  }
-  /* line 268, ../sass/application.scss */
-  .main-container .visual-element {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 250px;
-    height: auto;
-    background: #333;
-  }
+/* line 326, ../sass/application.scss */
+.customers li, .customers .single {
+  display: block;
+  border-bottom: 1px solid #e7e7e7;
+}
+/* line 331, ../sass/application.scss */
+.customers .customer-container {
+  padding: 20px 30px;
+}
+/* line 334, ../sass/application.scss */
+.customers .customer-container .customer-header {
+  position: relative;
+  padding: 0 20px 0 0;
+  margin-bottom: 5px;
+  min-height: 0;
+}
+/* line 340, ../sass/application.scss */
+.customers .customer-container .customer-header h2, .customers .customer-container .customer-header .title {
+  font-size: 1.2em;
+}
+/* line 344, ../sass/application.scss */
+.customers .customer-container .customer-header h2 .points, .customers .customer-container .customer-header .title .points {
+  color: inherit;
+  font-size: 0.9em;
+}
+/* line 351, ../sass/application.scss */
+.customers .customer-container .customer-header .date {
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+/* line 359, ../sass/application.scss */
+.customers .latest-transaction {
+  margin-bottom: 0;
+  font-size: 0.9em;
+  line-height: 1.3;
 }

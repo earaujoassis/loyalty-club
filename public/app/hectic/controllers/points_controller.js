@@ -3,10 +3,11 @@ define(["angular", "hectic"], function (angular) {
 
     angular.module("app.controllers").controller("PointsController", [
         "$scope",
+        "$rootScope",
         "$routeParams",
         "CustomersService",
         "PointsService",
-        function ($scope, $routeParams, CustomersService, PointsService) {
+        function ($scope, $rootScope, $routeParams, CustomersService, PointsService) {
             $scope.customer = {};
             $scope.latest_transaction = {};
             $scope.history_transactions = [];
@@ -56,9 +57,11 @@ define(["angular", "hectic"], function (angular) {
                     .create($routeParams.id, transaction)
                     .then(function (value) {
                         if (!!value.id) {
+                            var onRootCustomer = _.findWhere($rootScope.customers, { "id": $scope.customer.id });
                             $scope.latest_transaction = value;
                             $scope.history_transactions.unshift(value);
                             $scope.transaction = {};
+                            onRootCustomer.points = value;
                         }
                     });
             };

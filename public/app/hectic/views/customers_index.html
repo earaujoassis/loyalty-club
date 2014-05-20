@@ -1,32 +1,3 @@
 <div class="front-data">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="breadcrumbs"><span class="root">Customers</span></div>
-    </div>
-    <div class="col-md-6">
-      <div class="internal-menu">
-        <ul class="menu" role="menu">
-          <li><a href="/customers/new">New customer</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <p>Select a customer from the list on the left</p>
 </div>
-<ul class="customers">
-  <li ng-repeat="customer in customers" class="single">
-    <section class="customer-container">
-      <header class="customer-header">
-        <div class="avatar">
-          <div class="image-place"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABOBAMAAACu1Dd2AAAAJFBMVEUAAACu0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2L/uEVAAAAC3RSTlMASKMP8DDbv3dlHnB3vIoAAAEVSURBVEjHYxgFo2AUjAIsgFFlt5MAUSpZs3fv3r0tgBil0ltajSO8NxJj6O5iIGm+mwhj2baDqeoEwkpnO4Mp652ElWZPAFOc24hwqgGYZibsWM5NUIZ2AyGlTDthblYgGABboYxogkHAvQvKWL2BoNLNUIY1WUopdwAbLJ1IE/QW0w4oo1uBYBRshzKqJxBSyrzbAE4TAtoNsAgmnAkcwBQLEdmAHeKv7gIi8uvuBUCSazcxeVYbFKBmm4jKsdsNGJirNxJhv/bu3R6hLbt3byLkghXeu52miu8ujFTZvaULr8pFu7e1wjRl79bC6/tNAchOweMGlu0ByJm32gGP0t2oAI9SRm8UlVsEGEbBKBgFQxQAAGIAV4TZ1n7pAAAAAElFTkSuQmCC" alt="Avatar replacement"></div>
-          <div class="call-to-action">
-            <a ng-href="/customers/{{ customer.id }}/points" class="btn btn-primary btn-block">Update</a>
-          </div>
-        </div>
-        <h2 class="title"><a ng-href="/customers/{{ customer.id }}/points" ng-bind="customer.full_name"></a> <small class="points">(<points value="customer.points.current_points" standard="0" />)</small></h2>
-      </header>
-      <div class="customer-content">
-        <p class="latest-transaction" ng-show="customer.points.id"><span class="regular">Latest</span>: <span ng-bind="customer.points.description"></span> (from <points value="customer.points.previous_points" /> to <points value="customer.points.current_points" /> loyalty <ng-pluralize count="customer.points.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
-      </div>
-    </section>
-  </li>
-</ul>
