@@ -32,6 +32,20 @@ define(["angular", "hectic"], function (angular) {
 
                 return deferred.promise;
             };
+
+            this.create = function (customer) {
+                var deferred = $q.defer();
+
+                $http({ method: "POST", data: customer, url: "/v1/customers/" })
+                    .success(function (data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function (reason) {
+                        deferred.reject;
+                    });
+
+                return deferred.promise;
+            };
         }
     ]);
 });

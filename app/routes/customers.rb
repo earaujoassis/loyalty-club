@@ -2,14 +2,25 @@ module Hectic
   module Routes
     class Customers < Base
       get '/v1/customers/?' do
-        json Customer.all
+        json Customer.ordered.all
       end
 
       get '/v1/customers/:id/?' do
-        additional = { current_points: 0 }
-        points = LoyaltyPoint.where(:customer_id => params[:id]).ordered.first
-        additional = additional.merge(points.as_resumed_json) unless points.nil?
-        json Customer.first!(:id => params[:id]).as_json.merge(additional)
+        json Customer.first!(:id => params[:id])
+      end
+
+      post '/v1/customers/?' do
+        customer = Customer.new
+        customer.set_fields(params, [:full_name])
+        customer.validate!
+        customer.save
+        json customer
+      end
+
+      put '/v1/customers/:id/?' do
+        customer = Customer.first!(:id => params[:id])
+        customer.update(full_name: params[:full_name])
+        json customer
       end
     end
   end

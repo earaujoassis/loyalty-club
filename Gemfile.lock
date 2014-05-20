@@ -16,6 +16,8 @@ GEM
     i18n (0.6.9)
     jsmin (1.0.1)
     json (1.8.1)
+    macaddr (1.7.1)
+      systemu (~> 2.6.2)
     mini_portile (0.5.3)
     minitest (5.3.3)
     nokogiri (1.6.1)
@@ -52,6 +54,7 @@ GEM
       bacon
       sequel (>= 3.2.0)
       sinatra (>= 0.9.4)
+    systemu (2.6.4)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -60,6 +63,8 @@ GEM
     tilt (1.4.1)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
+    uuid (2.3.7)
+      macaddr (~> 1.0)
 
 PLATFORMS
   ruby
@@ -80,3 +85,4 @@ DEPENDENCIES
   sinatra-assetpack
   sinatra-sequel
   thin
+  uuid

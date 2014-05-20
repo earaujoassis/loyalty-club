@@ -1,13 +1,12 @@
-<div class="breadcrumbs"><a class="root" href="/">Customers</a> &gt; <span ng-bind="customer.full_name"></span></div>
 <section class="customer-container" ng-show="customer.id">
   <header class="customer-header">
     <div class="avatar">
       <div class="image-place"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABOBAMAAACu1Dd2AAAAJFBMVEUAAACu0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2u0/2L/uEVAAAAC3RSTlMASKMP8DDbv3dlHnB3vIoAAAEVSURBVEjHYxgFo2AUjAIsgFFlt5MAUSpZs3fv3r0tgBil0ltajSO8NxJj6O5iIGm+mwhj2baDqeoEwkpnO4Mp652ElWZPAFOc24hwqgGYZibsWM5NUIZ2AyGlTDthblYgGABboYxogkHAvQvKWL2BoNLNUIY1WUopdwAbLJ1IE/QW0w4oo1uBYBRshzKqJxBSyrzbAE4TAtoNsAgmnAkcwBQLEdmAHeKv7gIi8uvuBUCSazcxeVYbFKBmm4jKsdsNGJirNxJhv/bu3R6hLbt3byLkghXeu52miu8ujFTZvaULr8pFu7e1wjRl79bC6/tNAchOweMGlu0ByJm32gGP0t2oAI9SRm8UlVsEGEbBKBgFQxQAAGIAV4TZ1n7pAAAAAElFTkSuQmCC" alt="Avatar replacement"></div>
     </div>
-    <h2 class="title"><span ng-bind="customer.full_name"></span> <small class="points">(<points value="latest_transaction.current_points" standard="0" />)</small></h2>
+    <h2 class="title"><span ng-bind="customer.full_name"></span> <small class="points">(<points value="latest_transaction.current_points" standard="0"></points>)</small></h2>
+    <p class="latest-transaction" ng-show="latest_transaction.id"><span ng-show="latest_transaction.description" ng-bind="latest_transaction.description"></span> (from <points value="latest_transaction.previous_points"></points> to <points value="latest_transaction.current_points"></points> loyalty <ng-pluralize count="latest_transaction.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
   </header>
   <div class="customer-content">
-    <p class="latest-transaction" ng-show="latest_transaction.id"><span class="regular">Latest</span>: <span ng-show="latest_transaction.description" ng-bind="latest_transaction.description"></span> (from <points value="latest_transaction.previous_points" /> to <points value="latest_transaction.current_points" /> loyalty <ng-pluralize count="latest_transaction.current_points" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize>)</p>
     <div class="new-transaction">
       <form name="transactionForm" novalidate>
         <div class="row">
@@ -48,7 +47,7 @@
       <ul class="transactions">
         <li ng-repeat="transaction in history_transactions" class="single">
           <p ng-show="transaction.description" ng-bind="transaction.description"></p>
-          <small>From <points value="transaction.previous_points" /> to <points value="transaction.current_points" /> (total of <span class="number old">{{ diff = transaction.current_points - transaction.previous_points; Math.abs(diff) }}</span> <ng-pluralize count="diff" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize> <span ng-if="diff < 0">redeemed</span><span ng-if="diff >= 0">issued</span>) &mdash; <time datetime="{{ transaction.created_at }}" ng-bind="transaction.created_at | date : 'MMM d, y @ h a'"></time></small>
+          <small>From <points value="transaction.previous_points"></points> to <points value="transaction.current_points"></points> (total of <span class="number" ng-class="{ red: (transaction.current_points - transaction.previous_points) < 0, green: (transaction.current_points - transaction.previous_points) >= 0 }">{{ diff = transaction.current_points - transaction.previous_points; Math.abs(diff) }}</span> <ng-pluralize count="diff" when="{'0': 'points', 'one': 'point', 'other': 'points'}"></ng-pluralize> <span ng-if="diff < 0">redeemed</span><span ng-if="diff >= 0">issued</span>) on <time title="{{ transaction.created_at }}" datetime="{{ transaction.created_at }}" ng-bind="transaction.created_at | date : 'MMM d, y @ h a'"></time></small>
         </li>
         <li ng-show="history_transactions.length === 0" class="single">
           <p>None yet</p>

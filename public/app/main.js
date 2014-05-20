@@ -9,7 +9,8 @@ require.config({
         ngSanitize: "/components/angular-sanitize/angular-sanitize.min",
         ngUIRouter: "/components/angular-ui-router/release/angular-ui-router.min",
         jquery: "/components/jquery/dist/jquery.min",
-        bootstrap: "/components/bootstrap/dist/js/bootstrap.min"
+        bootstrap: "/components/bootstrap/dist/js/bootstrap.min",
+        perfectScrollbar: "/components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min",
     },
     packages: [
         {
@@ -36,6 +37,15 @@ require.config({
         },
         underscore: {
             exports: "underscore"
+        },
+        jquery: {
+            exports: "jquery"
+        },
+        perfectScrollbar: {
+            deps: ["jquery"]
+        },
+        bootstrap: {
+            deps: ["jquery"]
         }
     }
 });
@@ -49,6 +59,7 @@ require([
     "underscore",
     "jquery",
     "bootstrap",
+    "perfectScrollbar",
     "async",
     "hectic"
 ], function (angular) {

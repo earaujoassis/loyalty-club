@@ -2,10 +2,12 @@ module Hectic
   module Routes
     class LoyaltyPoints < Base
       get '/v1/customers/:id/points/?' do
+        Customer.first!(:id => params[:id])
         json LoyaltyPoint.where(:customer_id => params[:id]).ordered
       end
 
-      get '/v1/customers/:id/current_points/?' do
+      get '/v1/customers/:id/points/latest/?' do
+        Customer.first!(:id => params[:id])
         json LoyaltyPoint.where(:customer_id => params[:id]).ordered.first!
       end
 
@@ -28,7 +30,7 @@ module Hectic
       end
 
       put '/v1/customers/:customer/points/:id/?' do
-        transaction = LoyaltyPoint.first!(:id => params[:id])
+        transaction = LoyaltyPoint.first!(:id => params[:id], :customer_id => params[:customer])
         transaction.update(description: params[:description])
         json transaction
       end

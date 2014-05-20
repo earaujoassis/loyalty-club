@@ -3,11 +3,11 @@ define(["angular", "hectic"], function (angular) {
 
     angular.module("app.controllers").controller("PointsController", [
         "$scope",
+        "$rootScope",
         "$routeParams",
-        "$location",
         "CustomersService",
         "PointsService",
-        function ($scope, $routeParams, $location, CustomersService, PointsService) {
+        function ($scope, $rootScope, $routeParams, CustomersService, PointsService) {
             $scope.customer = {};
             $scope.latest_transaction = {};
             $scope.history_transactions = [];
@@ -22,17 +22,13 @@ define(["angular", "hectic"], function (angular) {
                     });
 
                 PointsService
-                    .getLatest($routeParams.id)
-                    .then(function (value) {
-                        $scope.latest_transaction = value;
-                    }, function (reason) {
-                        /* FIX Create an interceptor for the 404 error */
-                    });
-
-                PointsService
                     .findAll($routeParams.id)
                     .then(function (value) {
                         $scope.history_transactions = value;
+                        if (!!value.length && value.length > 0) {
+                            // The latest transaction is the first transaction on history
+                            $scope.latest_transaction = value[0];
+                        }
                     });
             }
 
@@ -60,11 +56,12 @@ define(["angular", "hectic"], function (angular) {
                 PointsService
                     .create($routeParams.id, transaction)
                     .then(function (value) {
-                        /* FIX Create an interceptor for the 406 error */
                         if (!!value.id) {
+                            var onRootCustomer = _.findWhere($rootScope.customers, { "id": $scope.customer.id });
                             $scope.latest_transaction = value;
                             $scope.history_transactions.unshift(value);
                             $scope.transaction = {};
+                            onRootCustomer.points = value;
                         }
                     });
             };

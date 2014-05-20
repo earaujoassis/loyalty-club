@@ -22,7 +22,7 @@ define(["angular", "hectic"], function (angular) {
             this.getLatest = function (_id) {
                 var deferred = $q.defer();
 
-                $http({ method: "GET", url: "/v1/customers/:id/current_points/".replace(":id", _id) })
+                $http({ method: "GET", url: "/v1/customers/:id/points/latest/".replace(":id", _id) })
                     .success(function (data) {
                         deferred.resolve(data);
                     })
