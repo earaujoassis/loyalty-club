@@ -183,26 +183,27 @@ a, a:hover {
 /* line 168, ../sass/application.scss */
 .main-header h1 {
   display: inline-block;
+  float: left;
   margin: 0;
   color: #ed6a4c;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 1.9em;
 }
-/* line 177, ../sass/application.scss */
+/* line 178, ../sass/application.scss */
 .main-header .menu {
   position: relative;
-  top: 4px;
+  top: 6px;
   float: right;
 }
-/* line 183, ../sass/application.scss */
+/* line 184, ../sass/application.scss */
 .main-header:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 190, ../sass/application.scss */
+/* line 191, ../sass/application.scss */
 .main-footer {
   margin-top: 30px;
   padding: 0 30px 30px;
@@ -210,59 +211,59 @@ a, a:hover {
   font-size: 1.2em;
 }
 
-/* line 198, ../sass/application.scss */
+/* line 199, ../sass/application.scss */
 .main-content {
   color: #494949;
 }
 
-/* line 202, ../sass/application.scss */
+/* line 203, ../sass/application.scss */
 .breadcrumbs {
   font-size: 0.9em;
   word-spacing: 5px;
 }
-/* line 210, ../sass/application.scss */
+/* line 211, ../sass/application.scss */
 .breadcrumbs a, .breadcrumbs span, .breadcrumbs .root {
   word-spacing: normal;
 }
 
-/* line 219, ../sass/application.scss */
+/* line 220, ../sass/application.scss */
 .internal-menu {
   color: #6ec1dd;
   text-align: right;
 }
 
-/* line 229, ../sass/application.scss */
+/* line 230, ../sass/application.scss */
 .front-data .title {
   margin: 0;
 }
-/* line 234, ../sass/application.scss */
+/* line 235, ../sass/application.scss */
 .front-data.jumbotron-like {
   margin-bottom: -32px;
 }
 
-/* line 239, ../sass/application.scss */
+/* line 240, ../sass/application.scss */
 .customer-container {
   padding: 20px 40px 40px;
 }
-/* line 242, ../sass/application.scss */
+/* line 243, ../sass/application.scss */
 .customer-container .customer-header {
   position: relative;
   margin-bottom: 20px;
   padding-left: 113px;
   min-height: 62px;
 }
-/* line 248, ../sass/application.scss */
+/* line 249, ../sass/application.scss */
 .customer-container .customer-header h2, .customer-container .customer-header .title {
   display: inline-block;
   margin: 0;
 }
-/* line 253, ../sass/application.scss */
+/* line 254, ../sass/application.scss */
 .customer-container .customer-header h2 .points, .customer-container .customer-header .title .points {
   display: inline-block;
   margin-left: 15px;
   color: inherit;
 }
-/* line 261, ../sass/application.scss */
+/* line 262, ../sass/application.scss */
 .customer-container .avatar {
   position: absolute;
   z-index: 10;
@@ -271,7 +272,7 @@ a, a:hover {
   display: inline-block;
   width: 83px;
 }
-/* line 269, ../sass/application.scss */
+/* line 270, ../sass/application.scss */
 .customer-container .avatar .image-place {
   width: 83px;
   height: 78px;
@@ -279,71 +280,71 @@ a, a:hover {
   background: #a3a3a3;
   overflow: hidden;
 }
-/* line 277, ../sass/application.scss */
+/* line 278, ../sass/application.scss */
 .customer-container .avatar .call-to-action {
   margin: 20px 0 0;
 }
-/* line 282, ../sass/application.scss */
+/* line 283, ../sass/application.scss */
 .customer-container .latest-transaction {
   margin: 0;
   font-size: 1em;
   line-height: 1.4;
 }
-/* line 294, ../sass/application.scss */
+/* line 295, ../sass/application.scss */
 .customer-container .history h3, .customer-container .history .title {
   margin: 0 0 25px;
   font-size: 1.2em;
 }
-/* line 303, ../sass/application.scss */
+/* line 304, ../sass/application.scss */
 .customer-container .history .transactions li, .customer-container .history .transactions .single {
   display: block;
 }
-/* line 306, ../sass/application.scss */
+/* line 307, ../sass/application.scss */
 .customer-container .history .transactions li ~ li, .customer-container .history .transactions li ~ .single, .customer-container .history .transactions .single ~ li, .customer-container .history .transactions .single ~ .single {
   margin-top: 15px;
 }
-/* line 311, ../sass/application.scss */
+/* line 312, ../sass/application.scss */
 .customer-container .history .transactions p {
   margin: 0;
   font-size: 1.1em;
 }
-/* line 316, ../sass/application.scss */
+/* line 317, ../sass/application.scss */
 .customer-container .history .transactions small {
   font-size: 1em;
 }
 
-/* line 326, ../sass/application.scss */
+/* line 327, ../sass/application.scss */
 .customers li, .customers .single {
   display: block;
   border-bottom: 1px solid #e7e7e7;
 }
-/* line 331, ../sass/application.scss */
+/* line 332, ../sass/application.scss */
 .customers .customer-container {
   padding: 20px 30px;
 }
-/* line 334, ../sass/application.scss */
+/* line 335, ../sass/application.scss */
 .customers .customer-container .customer-header {
   position: relative;
   padding: 0 20px 0 0;
   margin-bottom: 5px;
   min-height: 0;
 }
-/* line 340, ../sass/application.scss */
+/* line 341, ../sass/application.scss */
 .customers .customer-container .customer-header h2, .customers .customer-container .customer-header .title {
   font-size: 1.2em;
 }
-/* line 344, ../sass/application.scss */
+/* line 345, ../sass/application.scss */
 .customers .customer-container .customer-header h2 .points, .customers .customer-container .customer-header .title .points {
   color: inherit;
   font-size: 0.9em;
 }
-/* line 351, ../sass/application.scss */
+/* line 352, ../sass/application.scss */
 .customers .customer-container .customer-header .date {
   position: absolute;
   top: 4px;
   right: 0;
 }
-/* line 359, ../sass/application.scss */
+/* line 360, ../sass/application.scss */
 .customers .latest-transaction {
   margin-bottom: 0;
   font-size: 0.9em;

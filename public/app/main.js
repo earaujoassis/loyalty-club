@@ -8,6 +8,8 @@ require.config({
         ngRoute: "/components/angular-route/angular-route.min",
         ngSanitize: "/components/angular-sanitize/angular-sanitize.min",
         ngUIRouter: "/components/angular-ui-router/release/angular-ui-router.min",
+        moment: "/components/moment/min/moment-with-langs.min",
+        angularMoment: "/components/angular-moment/angular-moment.min",
         jquery: "/components/jquery/dist/jquery.min",
         bootstrap: "/components/bootstrap/dist/js/bootstrap.min",
         perfectScrollbar: "/components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min",
@@ -35,6 +37,12 @@ require.config({
         ngUIRouter: {
             deps: ["angular"]
         },
+        moment: {
+            exports: "moment"
+        },
+        angularMoment: {
+            deps: ["moment", "angular"]
+        },
         underscore: {
             exports: "underscore"
         },
@@ -56,6 +64,8 @@ require([
     "ngSanitize",
     "ngResource",
     "ngUIRouter",
+    "moment",
+    "angularMoment",
     "underscore",
     "jquery",
     "bootstrap",

@@ -167,6 +167,7 @@ a {
 
     h1 {
         display: inline-block;
+        float: left;
         margin: 0;
         color: #ed6a4c;
         font-family: 'Lato', sans-serif;
@@ -176,7 +177,7 @@ a {
 
     .menu {
         position: relative;
-        top: 4px;
+        top: 6px;
         float: right;
     }
 
