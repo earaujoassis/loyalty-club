@@ -22,3 +22,4 @@ gem 'json'
 # Tests
 gem 'rack-test'
 gem 'rspec'
+gem 'uuid'

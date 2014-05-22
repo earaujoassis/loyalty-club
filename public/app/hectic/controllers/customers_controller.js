@@ -1,29 +1,26 @@
-define(["angular", "async", "hectic"], function (angular, async) {
+define(["angular", "hectic"], function (angular) {
     "use strict";
 
     angular.module("app.controllers").controller("CustomersController", [
+        "$scope",
         "$rootScope",
+        "$location",
         "CustomersService",
-        "PointsService",
-        function ($rootScope, CustomersService, PointsService) {
-            CustomersService
-                .findAll()
-                .then(function (value) {
-                    $rootScope.customers = value;
+        function ($scope, $rootScope, $location, CustomersService) {
+            $scope.customer = {};
 
-                    async.mapSeries($rootScope.customers, function (customer, callback) {
-                        PointsService
-                            .getLatest(customer.id)
-                            .then(function (value) {
-                                customer.points = value;
-                                callback(null, customer);
-                            });
-                    }, function (err, results) {
-                        if (!err) {
-                            $rootScope.customers = results;
+            $scope.saveCustomer = function (customer) {
+                customer = angular.copy(customer);
+                CustomersService
+                    .create(customer)
+                    .then(function (value) {
+                        if (!!value.id) {
+                            $scope.customer = {};
+                            $rootScope.customers.unshift(value);
+                            $location.path("/");
                         }
                     });
-                });
+            };
         }
     ]);
 });
