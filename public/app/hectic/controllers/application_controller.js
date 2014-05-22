@@ -1,4 +1,4 @@
-define(["angular", "async", "hectic"], function (angular, async) {
+define(["angular", "async", "moment", "hectic"], function (angular, async, moment) {
     "use strict";
 
     angular.module("app.controllers").controller("AppCtrl", [
@@ -6,7 +6,26 @@ define(["angular", "async", "hectic"], function (angular, async) {
         "CustomersService",
         "PointsService",
         function ($rootScope, CustomersService, PointsService) {
+            moment.lang('en', {
+                relativeTime : {
+                    future: "in %s",
+                    past: "%s",
+                    s:  "seconds",
+                    m:  "1m",
+                    mm: "%dm",
+                    h:  "1h",
+                    hh: "%dh",
+                    d:  "1d",
+                    dd: "%dd",
+                    M:  "1m",
+                    MM: "%dm",
+                    y:  "1y",
+                    yy: "%dy"
+                }
+            });
+
             $rootScope.customers = [];
+            $rootScope.moment = moment;
 
             CustomersService
                 .findAll()

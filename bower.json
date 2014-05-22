@@ -36,6 +36,6 @@
     "requirejs": "<=2.1.9",
     "async": "~0.8.0",
     "perfect-scrollbar": "~0.4.10",
-    "angular-moment": "~0.7.1"
+    "moment": "~2.6.0"
   }
 }
