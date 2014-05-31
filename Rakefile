@@ -6,6 +6,26 @@ task :app => :dotenv do
   require './app'
 end
 
+namespace :server do
+  socket_file = File.join ENV['HOME'], 'tmp/loyalty-club.sock'
+
+  desc 'Start the server'
+  task :start do
+    `thin start -d --socket #{socket_file}`
+  end
+
+  task :stop do
+    `thin stop`
+    `rm -f #{socket_file}`
+  end
+
+  task :restart do
+    `thin stop`
+    `rm -f #{socket_file}`
+    `thin start -d --socket #{socket_file}`
+  end
+end
+
 namespace :db do
   desc 'Run DB migrations'
   task :migrate => :app do
