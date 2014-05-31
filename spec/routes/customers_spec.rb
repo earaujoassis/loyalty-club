@@ -25,7 +25,7 @@ describe 'Customers route (based on data seeds):' do
       get "/v1/customers/"
       expect(last_response).to be_ok
       body = JSON.parse(last_response.body)
-      expect(body.length).to be 2
+      expect(body.length).to be 5
     end
   end
 
@@ -84,7 +84,7 @@ describe 'Customers route (based on data seeds):' do
     end
 
     it 'tries to update an absent customer' do
-      put "/v1/customers/#{@customer.id}/", {
+      put "/v1/customers/#{@absent_customer}/", {
         full_name: "Mr Absent"
       }
       expect(last_response.status).to eq 404

@@ -113,7 +113,7 @@ describe 'LoyaltyPoints route (based on data seeds):' do
 
     it 'tries to redeem more points than the customer has in its current balance' do
       post "/v1/customers/#{@customer.id}/points/", {
-        balance: '-1000',
+        balance: '-9999999999',
         description: 'testing description',
         previous_points: 100,
         current_points: 200
