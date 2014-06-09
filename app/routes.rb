@@ -1,5 +1,6 @@
 module Hectic
   module Routes
+    I18n.config.enforce_available_locales = true
     autoload :Base, 'app/routes/base'
     autoload :Static, 'app/routes/static'
     autoload :Index, 'app/routes/index'

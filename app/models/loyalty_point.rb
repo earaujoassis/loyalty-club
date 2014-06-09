@@ -30,8 +30,10 @@ module Hectic
         super
         validates_presence [:previous_points, :current_points]
         validates_integer [:previous_points, :current_points]
-        if !(previous_points >= 0 && current_points >= 0) || (previous_points + current_points < 0)
-          errors.add(:current_points, 'Cannot redeem more points than the customer has in its current balance')
+        if !errors.on(:previous_points) && !errors.on(:current_points)
+          if !(previous_points >= 0 && current_points >= 0) || (previous_points + current_points < 0)
+            errors.add(:current_points, 'Cannot redeem more points than the customer has in its current balance')
+          end
         end
       end
     end

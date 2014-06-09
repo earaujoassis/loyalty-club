@@ -20,6 +20,7 @@ module Hectic
       def validate
         super
         validates_presence [:full_name]
+        validates_unique :full_name
       end
     end
   end

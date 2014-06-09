@@ -23,4 +23,6 @@ gem 'json'
 # Tests
 gem 'rack-test'
 gem 'rspec'
+gem 'factory_girl'
+gem 'faker'
 gem 'uuid'

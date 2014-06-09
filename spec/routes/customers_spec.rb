@@ -1,102 +1,104 @@
 require 'spec_helper'
 
-describe 'Customers route (based on data seeds):' do
+describe Hectic::Routes::Customers do
   include Rack::Test::Methods
-  include Hectic::TestHelpers
 
-  def app
+  let(:app) do
     Hectic::App
   end
 
-  before :each do
-    setup_db
-    @customer = Hectic::Models::Customer.first!
-    @absent_customer = UUID.new.generate
+  let(:customer) do
+    FactoryGirl.create :customer
   end
 
-  context 'get: list of customers:' do
-    it 'gets a list of customers' do
+  let(:fake_id) do
+    UUID.new.generate
+  end
+
+  let(:fake_name) do
+    "#{Faker::Name.first_name} #{Faker::Name.last_name}"
+  end
+
+  describe 'listing and getting customers' do
+    before do
+      FactoryGirl.create :customer
+      FactoryGirl.create :customer
+    end
+
+    it 'should get a list of (at least two) customers' do
       get "/v1/customers/"
       expect(last_response).to be_ok
       body = JSON.parse(last_response.body)
-      expect(body.length).to be 5
+      expect(body.length).to be > 1
     end
-  end
 
-  context 'get: a customer:' do
-    it 'gets a given customer' do
-      get "/v1/customers/#{@customer.id}/"
+    it 'should get a given customer' do
+      subject = customer
+      get "/v1/customers/#{subject.id}/"
       expect(last_response).to be_ok
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body.keys).to include(:id)
-      expect(body[:full_name]).to eq @customer.full_name
-      expect(body[:id]).to eq @customer.id
+      expect(body[:full_name]).to eq subject.full_name
+      expect(body[:id]).to eq subject.id
     end
 
-    it 'tries to get an absent customer' do
-      get "/v1/customers/#{@absent_customer}/"
+    it 'should try to get an absent customer and fail' do
+      get "/v1/customers/#{fake_id}/"
       expect(last_response.status).to eq 404
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'unknown_record'
     end
 
-    it 'tries to get a malformed customer\'s ID'  do
+    it 'should try to get a malformed customer\'s ID and fail'  do
       get "/v1/customers/0/"
       expect(last_response.status).to eq 500
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'database_error'
     end
   end
 
-  context 'post: customer creation:' do
-    it 'creates a new customer' do
-      post "/v1/customers/", {
-        full_name: "Robot RSpec"
-      }
+  context 'creating a customer' do
+    it 'should create a new customer' do
+      name = fake_name
+      post "/v1/customers/", { full_name: name }
       expect(last_response).to be_ok
-      body = symbolize_keys JSON.parse(last_response.body)
-      expect(body[:full_name]).to eq 'Robot RSpec'
-      expect(body.keys).to include(:id)
+      body = JSON.parse(last_response.body).symbolize_keys!
+      expect(body[:full_name]).to eq name
+      expect(body.keys).to include :id
     end
 
-    it 'tries to create a new customer w/o any data' do
-      post "/v1/customers/", {}
+    it 'should try to create a new customer w/o any data and fail' do
+      post "/v1/customers/", { }
       expect(last_response.status).to eq 406
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'validation_failed'
     end
   end
 
-  context 'put: updates a customer:' do
-    it 'updates a given customer\'s full name' do
-      put "/v1/customers/#{@customer.id}/", {
-        full_name: "Robot R2"
-      }
+  context 'updating a customer' do
+    it 'should update a given customer\'s full name' do
+      subject = customer
+      name = fake_name
+      put "/v1/customers/#{subject.id}/", { full_name: name }
       expect(last_response).to be_ok
-      body = symbolize_keys JSON.parse(last_response.body)
-      expect(body[:full_name]).to eq 'Robot R2'
+      body = JSON.parse(last_response.body).symbolize_keys!
+      subject.reload
+      expect(body[:id]).to eq subject.id
+      expect(body[:full_name]).to eq name
     end
 
-    it 'tries to update an absent customer' do
-      put "/v1/customers/#{@absent_customer}/", {
-        full_name: "Mr Absent"
-      }
+    it 'should try to update an absent customer and fail' do
+      put "/v1/customers/#{fake_id}/", { full_name: fake_name }
       expect(last_response.status).to eq 404
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'unknown_record'
     end
 
-    it 'tries to update a customer with a malformed ID' do
-      put "/v1/customers/0/", {
-        full_name: "Mr Absent"
-      }
+    it 'should try to update a customer with a malformed ID and fail' do
+      put "/v1/customers/0/", { full_name: fake_name }
       expect(last_response.status).to eq 500
-      body = symbolize_keys JSON.parse(last_response.body)
+      body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'database_error'
     end
-  end
-
-  after :each do
-    teardown_db
   end
 end
