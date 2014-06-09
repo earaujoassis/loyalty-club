@@ -17,10 +17,9 @@ module Hectic
         }
       end
 
-      def validate!
-        if full_name.nil? || full_name.to_s.empty? || !valid?
-          raise Sequel::ValidationFailed, 'Validation failed on Customer model'
-        end
+      def validate
+        super
+        validates_presence [:full_name]
       end
     end
   end
