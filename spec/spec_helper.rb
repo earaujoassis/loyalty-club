@@ -1,3 +1,7 @@
+ENV['RACK_ENV'] = 'test'
+require 'rspec'
+require 'rack/test'
+require 'uuid'
 require './app'
 
 module Hectic
@@ -11,7 +15,7 @@ module Hectic
     def teardown_db
       database = Hectic::App.database
       database.tables.each do |table|
-        database.run("DROP TABLE #{table} CASCADE")
+        database.run("DROP TABLE IF EXISTS #{table} CASCADE")
       end
     end
 

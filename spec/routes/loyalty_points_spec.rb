@@ -1,10 +1,4 @@
-ENV['RACK_ENV'] = 'test'
-
-require './app'
-require './spec/helpers'
-require 'rspec'
-require 'rack/test'
-require 'uuid'
+require 'spec_helper'
 
 describe 'LoyaltyPoints route (based on data seeds):' do
   include Rack::Test::Methods

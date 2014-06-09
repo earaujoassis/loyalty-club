@@ -32,7 +32,7 @@
                   <li><a href="#">Redeem</a></li>
                 </ul>
               </div>
-              <input ng-change="overAttempting = false" ng-model="transaction.balance" required type="text" ng-pattern="/^[-]?[1-9][0-9]*$/" class="form-control" placeholder="Amount of points">
+              <input ng-change="overAttempting = false" ng-model="transaction.balance" required type="text" ng-pattern="/^[-+]?[1-9][0-9]*$/" class="form-control" placeholder="Amount of points">
               <div class="input-group-btn">
                 <button type="button" class="btn btn-primary" ng-disabled="transactionForm.$invalid" ng-click="saveTransaction(transaction)">Save</button>
               </div>
