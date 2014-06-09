@@ -17,6 +17,7 @@ gem 'pg'
 # Assets
 gem 'sinatra-assetpack'
 gem 'sass'
+gem 'compass'
 gem 'json'
 
 # Tests
