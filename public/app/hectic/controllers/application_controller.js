@@ -10,7 +10,7 @@ define(["angular", "async", "moment", "hectic"], function (angular, async, momen
                 relativeTime : {
                     future: "in %s",
                     past: "%s",
-                    s:  "seconds",
+                    s:  "sec",
                     m:  "1m",
                     mm: "%dm",
                     h:  "1h",

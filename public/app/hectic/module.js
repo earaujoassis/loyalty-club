@@ -80,7 +80,7 @@ define(["angular"], function (angular) {
             };
 
 
-            $httpProvider.defaults.transformRequest = [function(data) {
+            $httpProvider.defaults.transformRequest = [function (data) {
                 return angular.isObject(data) && String(data) !== "[object File]" ? param(data) : data;
             }];
 
