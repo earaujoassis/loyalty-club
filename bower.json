@@ -36,6 +36,7 @@
     "requirejs": "<=2.1.9",
     "async": "~0.8.0",
     "perfect-scrollbar": "~0.4.10",
-    "moment": "~2.6.0"
+    "moment": "~2.6.0",
+    "jquery-mousewheel": "~3.1.11"
   }
 }

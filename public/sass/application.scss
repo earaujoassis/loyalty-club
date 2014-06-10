@@ -2,6 +2,7 @@
 @import "http://fonts.googleapis.com/css?family=Lato:700";
 @import "/components/bootstrap/dist/css/bootstrap.min.css";
 @import "/components/normalize-css/normalize.css";
+@import "/components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css";
 
 a {
     &, &:hover {
@@ -158,6 +159,19 @@ a {
 
     .flexible-content {
         margin-left: 420px;
+    }
+
+    .scrollbar-container {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        width: auto;
+        overflow: hidden;
+
+        .content {
+            padding-bottom: 50px;
+            height: auto;
+        }
     }
 }
 

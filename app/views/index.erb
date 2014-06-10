@@ -15,7 +15,7 @@
           <h1><a href="/">Loyalty Club</a></h1>
           <div class="menu" role="menu"><a href="/customers/new"><i class="icon-customer"></i></a> <i class="icon-search"></i></div>
         </header>
-        <div perfect-scrollbar class="scrollbar-container">
+        <div perfect-scrollbar invoke="renderCustomersList(elem)" class="scrollbar-container">
           <div class="content">
             <ul class="customers" ng-show="customers.length > 0">
               <li ng-repeat="customer in customers" class="single">
