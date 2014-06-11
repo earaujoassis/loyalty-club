@@ -2,7 +2,7 @@
 
 > A retailer’s customer loyalty program application
 
-![Screenshot](http://ea-lab.github.io/loyalty-club/screenshot.png)
+![Screenshot](http://earaujoassis.github.io/loyalty-club/screenshot.png)
 
 **Requirements**
 
