@@ -41,4 +41,4 @@ There is an Application written in this project as a response for a technical ex
 named "Loyalty Club", is not intented to be used commercially nor to be used as part of any further
 application.
 
-[MIT License](http://ewerton-araujo.mit-license.org/) &copy; Ewerton Assis
+[MIT License](http://earaujoassis.mit-license.org/) &copy; Ewerton Assis
