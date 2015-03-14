@@ -7,7 +7,7 @@ module Hectic
         end
       end
 
-      one_to_many :loyalty_points, :on_delete => :cascade
+      one_to_many :loyalty_points, on_delete: :cascade
 
       def as_json(options = nil)
         {

@@ -79,7 +79,7 @@ describe Hectic::Routes::Customers do
     it 'should update a given customer\'s full name' do
       subject = customer
       name = fake_name
-      put "/v1/customers/#{subject.id}/", { full_name: name }
+      put "/v1/customers/#{subject.id}/", {full_name: name}
       expect(last_response).to be_ok
       body = JSON.parse(last_response.body).symbolize_keys!
       subject.reload
@@ -88,14 +88,14 @@ describe Hectic::Routes::Customers do
     end
 
     it 'should try to update an absent customer and fail' do
-      put "/v1/customers/#{fake_id}/", { full_name: fake_name }
+      put "/v1/customers/#{fake_id}/", {full_name: fake_name}
       expect(last_response.status).to eq 404
       body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'unknown_record'
     end
 
     it 'should try to update a customer with a malformed ID and fail' do
-      put "/v1/customers/0/", { full_name: fake_name }
+      put "/v1/customers/0/", {full_name: fake_name}
       expect(last_response.status).to eq 500
       body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'database_error'

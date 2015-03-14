@@ -2,7 +2,7 @@
 
 require 'dotenv/tasks'
 
-task :app => :dotenv do
+task app: :dotenv do
   require './app'
 end
 
@@ -28,14 +28,14 @@ end
 
 namespace :db do
   desc 'Run DB migrations'
-  task :migrate => :app do
+  task migrate: :app do
    require 'sequel/extensions/migration'
 
    Sequel::Migrator.apply(Hectic::App.database, 'db/migrations')
   end
 
   desc 'Rollback migration'
-  task :rollback => :app do
+  task rollback: :app do
     require 'sequel/extensions/migration'
 
     database = Hectic::App.database
@@ -44,7 +44,7 @@ namespace :db do
   end
 
   desc 'Drop the database'
-  task :drop => :app do
+  task drop: :app do
     database = Hectic::App.database
 
     database.tables.each do |table|
@@ -53,7 +53,7 @@ namespace :db do
   end
 
   desc 'Dump the database schema'
-  task :dump => :app do
+  task dump: :app do
     require 'uri'
 
     database = Hectic::App.database
@@ -65,7 +65,7 @@ namespace :db do
   end
 
   desc 'Load seed data into database'
-  task :seed => :app do
+  task seed: :app do
     load './db/seeds.rb'
   end
 end

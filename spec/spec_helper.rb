@@ -38,10 +38,10 @@ RSpec.configure do |config|
   #config.include FactoryGirl::Syntax::Methods
   config.include Rack::Test::Methods
   config.around(:each, transaction: nil) do |example|
-    DB.transaction(rollback: :always){ example.run }
+    DB.transaction(rollback: :always){example.run}
   end
   config.before(:suite) do
-    Dir.glob(File.join('spec', 'factories', '**', '*.rb')).each { |f| require f }
+    Dir.glob(File.join('spec', 'factories', '**', '*.rb')).each {|f| require f}
   end
 end
 

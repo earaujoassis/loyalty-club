@@ -88,14 +88,14 @@ describe Hectic::Routes::LoyaltyPoints do
     end
 
     it 'should try to create a new transaction of loyalty points for an absent customer and fail' do
-      post "/v1/customers/#{fake_id}/points/", { balance: '-2', description: 'testing description' }
+      post "/v1/customers/#{fake_id}/points/", {balance: '-2', description: 'testing description'}
       expect(last_response.status).to eq 404
       body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'unknown_record'
     end
 
     it 'should try to create a new transaction of loyalty points with a malformed customer\'s ID and fail' do
-      post "/v1/customers/0/points/", { balance: '-2', description: 'testing description' }
+      post "/v1/customers/0/points/", {balance: '-2', description: 'testing description'}
       expect(last_response.status).to eq 500
       body = JSON.parse(last_response.body).symbolize_keys!
       expect(body[:error][:type]).to eq 'database_error'
