@@ -1,4 +1,4 @@
 .env
 .sass-cache
-tmp/
-log/
+tmp
+log

@@ -5,9 +5,11 @@
 @import "/components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css";
 
 a {
-    &, &:hover {
+    &, &:hover, &:focus {
+        border: none;
         text-decoration: none;
         color: inherit;
+        outline: none;
     }
 }
 

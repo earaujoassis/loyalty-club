@@ -4,29 +4,49 @@ require 'dotenv/tasks'
 
 task app: :dotenv do
   require './app'
-end
 
-namespace :server do
-  socket_file = File.join ENV['HOME'], 'tmp/loyalty-club.sock'
-
-  desc 'Start the server'
-  task :start do
-    `thin start -d --socket #{socket_file}`
-  end
-
-  task :stop do
-    `thin stop`
-    `rm -f #{socket_file}`
-  end
-
-  task :restart do
-    `thin stop`
-    `rm -f #{socket_file}`
-    `thin start -d --socket #{socket_file}`
-  end
+  Hectic::App.configure!
 end
 
 namespace :db do
+  def psql_connection
+    database_url = ENV['DATABASE_URL']
+    database = Sequel.connect("#{database_url}postgres",
+      user: ENV['DATABASE_USER'], password: ENV['DATABASE_PASSWORD'],
+      encoding: 'utf-8')
+  end
+
+  desc 'Create the database'
+  task :create do
+    require './app'
+    require 'pg'
+    require 'sequel'
+
+    database_prefix = ENV['DATABASE_NAME_PREFIX']
+    database_suffix = (ENV['PROJECT_ENV'] || :development).to_sym
+    database_user = ENV['DATABASE_USER']
+    database_name = "#{database_prefix}_#{database_suffix}"
+    database = psql_connection()
+    result = database.fetch("SELECT COUNT(*) AS n FROM pg_database WHERE datname='#{database_name}'").first
+    if result[:n] == 0
+      database << "CREATE DATABASE #{database_name} OWNER #{database_user}"
+    else
+      puts "Database #{database_name} already exists; skipping"
+    end
+  end
+
+  task :destroy do
+    require './app'
+    require 'pg'
+    require 'sequel'
+
+    database_prefix = ENV['DATABASE_NAME_PREFIX']
+    database_suffix = ENV['PROJECT_ENV'].to_sym || :development
+    database_name = "#{database_prefix}_#{database_suffix}"
+    database = psql_connection
+    database << "DROP DATABASE IF EXISTS #{database_name}"
+  end
+
   desc 'Run DB migrations'
   task migrate: :app do
    require 'sequel/extensions/migration'
@@ -66,6 +86,8 @@ namespace :db do
 
   desc 'Load seed data into database'
   task seed: :app do
-    load './db/seeds.rb'
+    require 'sequel/extensions/seed'
+
+    Sequel::Seeder.apply(Hectic::App.database, 'db/seeds')
   end
 end

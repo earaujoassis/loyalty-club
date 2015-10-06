@@ -1,10 +1,13 @@
 # Loyalty Club
 
-> A retailer’s customer loyalty program application
+> A retailer's customer loyalty program application
+
+This project was developed as a technical test for the Springboard Retail selection process (May 2014).
+**It is not maintained anymore**.
 
 ![Screenshot](http://earaujoassis.github.io/loyalty-club/screenshot.png)
 
-**Requirements**
+## Requirements
 
  * Ruby 1.9+
  * Bower (Node.js + NPM)
@@ -18,22 +21,28 @@ able to create a `.env` file (see `.sample.env` for instructions).
 
   ```sh
   $ bundle install
-  $ createdb loyalty_club_development
-  $ rake db:migrate db:seed
-  $ thin start
+  $ bundle exec rake db:create db:migrate db:seed
+  $ bundle exec thin start
+  ```
+
+## Development
+
+  ```sh
+  $ cd public && compass watch
   ```
 
 ## Testing
 
   ```sh
-  $ createdb loyalty_club_testing
-  $ rspec
+  $ bundle exec rake db:create PROJECT_ENV=test
+  $ bundle exec rspec
   ```
 
 ## Acknowledgment
 
-This stack is based upon [Alex MacCaw](https://twitter.com/maccaw)'s "[Structuring Sinatra Applications](http://blog.sourcing.io/structuring-sinatra)"
-and his [Monocle](https://github.com/maccman/monocle) application.
+This stack is based upon [Alex MacCaw](https://twitter.com/maccaw)'s
+"[Structuring Sinatra Applications](http://blog.sourcing.io/structuring-sinatra)" and his
+[Monocle](https://github.com/maccman/monocle) application.
 
 ## License
 
@@ -41,4 +50,4 @@ There is an Application written in this project as a response for a technical ex
 named "Loyalty Club", is not intented to be used commercially nor to be used as part of any further
 application.
 
-[MIT License](http://earaujoassis.mit-license.org/) &copy; Ewerton Assis
+Code under the [MIT License](http://earaujoassis.mit-license.org/) &copy; Ewerton Assis

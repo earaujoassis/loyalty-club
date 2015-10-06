@@ -3,16 +3,12 @@ require 'spec_helper'
 describe Hectic::Routes::LoyaltyPoints do
   include Rack::Test::Methods
 
-  let(:app) do
-    Hectic::App
-  end
+  let(:app) {Hectic::App}
 
-  let(:fake_id) do
-    UUID.new.generate
-  end
+  let(:fake_id) {UUID.new.generate}
 
-  before do
-    @customer = FactoryGirl.create :customer
+  before(:each) do
+    @customer = create :customer
     first = LoyaltyPoint.create previous_points: 0, current_points: Faker::Number.number(8), \
       customer: @customer
     @transaction = LoyaltyPoint.create previous_points: first.current_points, \

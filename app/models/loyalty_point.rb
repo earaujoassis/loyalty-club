@@ -7,7 +7,7 @@ module Hectic
         end
       end
 
-      many_to_one :customer
+      many_to_one :customer, key: :customer_id
 
       def as_json(options = nil)
         {

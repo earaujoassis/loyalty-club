@@ -8,7 +8,6 @@ require 'dotenv'
 Dotenv.load
 
 require 'sinatra/base'
-require 'sinatra/sequel'
 require 'sinatra/assetpack'
 require 'active_support/json'
 require 'sass'
@@ -19,12 +18,29 @@ require 'app/routes'
 
 module Hectic
   class App < Sinatra::Application
-    configure :production, :development do
-      set :database, ENV['DATABASE_URL']
-    end
+    class << self
+      def database=(url)
+        @database = nil
+        @database_url = url
+        database
+      end
 
-    configure :test do
-      set :database, ENV['DATABASE_TST']
+      def database
+        @database ||=
+          Sequel.connect(@database_url,
+              user: ENV['DATABASE_USER'],
+              password: ENV['DATABASE_PASSWORD'],
+              encoding: 'utf-8')
+        @database
+      end
+
+      def configure!
+        database_url = ENV['DATABASE_URL']
+        database_prefix = ENV['DATABASE_NAME_PREFIX']
+        database_suffix = ENV['PROJECT_ENV'].to_sym || :development
+        self.database = "#{database_url}#{database_prefix}_#{database_suffix}"
+        self
+      end
     end
 
     configure do

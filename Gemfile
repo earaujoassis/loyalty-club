@@ -12,6 +12,7 @@ gem 'activesupport'
 # DB
 gem 'sequel'
 gem 'sinatra-sequel'
+gem 'sequel-seed'
 gem 'pg'
 
 # Assets

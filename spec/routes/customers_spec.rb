@@ -3,26 +3,18 @@ require 'spec_helper'
 describe Hectic::Routes::Customers do
   include Rack::Test::Methods
 
-  let(:app) do
-    Hectic::App
-  end
+  let(:app) {Hectic::App}
 
-  let(:customer) do
-    FactoryGirl.create :customer
-  end
+  let(:customer) {create :customer}
 
-  let(:fake_id) do
-    UUID.new.generate
-  end
+  let(:fake_id) {UUID.new.generate}
 
-  let(:fake_name) do
-    "#{Faker::Name.first_name} #{Faker::Name.last_name}"
-  end
+  let(:fake_name) {"#{Faker::Name.first_name} #{Faker::Name.last_name}"}
 
   describe 'listing and getting customers' do
     before do
-      FactoryGirl.create :customer
-      FactoryGirl.create :customer
+      create :customer
+      create :customer
     end
 
     it 'should get a list of (at least two) customers' do
