@@ -2,7 +2,7 @@
 
 > A retailer's customer loyalty program application
 
-This project was developed as a technical test for the Springboard Retail selection process (May 2014).
+This project was developed as a technical test and a proof of concept for a selection process (May 2014).
 **It is not maintained anymore**.
 
 ![Screenshot](http://earaujoassis.github.io/loyalty-club/screenshot.png)
